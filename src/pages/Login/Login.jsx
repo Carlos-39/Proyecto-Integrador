@@ -3,6 +3,7 @@ import useAuthStore from '../../stores/use-auth-store' // Import del store de au
 import './Login.css'
 import googleIcon from '../../assets/icons/google.png'
 import projectLogo from '../../assets/images/logo.png'
+import UserDao from '../../daos/UserDao'
 
 /**
  	* Componente Login para manejar el inicio y cierre de sesión con Google.
@@ -46,6 +47,24 @@ const Login = () => {
 	const handleLogout = useCallback(() => {
 		logout()
 	}, [logout])
+
+	/**
+   		* Hook para crear un nuevo usuario autenticado en la DB cuando `user` cambia.
+   		* Solo se ejecuta si `user` no es null.
+   		*
+   		* @function useEffect
+   */
+	useEffect(() => {
+		if(user) {
+			const newUser = {
+				email: user.email,
+				name: user.displayName,
+				photo: user.photoURL
+			}
+
+			UserDao.createUser(newUser)
+		}
+	}, [user])
 
 	/**
    		* Si el estado `loading` es `true`, muestra un texto que dice "Cargando..."
