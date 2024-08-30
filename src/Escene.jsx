@@ -5,7 +5,7 @@ import './Escene.css'
 const Escene = () =>
     {
         return <Canvas
-            camera={{position: [3,2,3],}}
+            camera={{position: [3,6,6],}}
         >
             <CloudObject />
         </Canvas>
