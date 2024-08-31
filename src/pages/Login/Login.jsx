@@ -1,5 +1,6 @@
 import { useEffect, useCallback } from 'react' // Import React hooks
 import useAuthStore from '../../stores/use-auth-store' // Import the authentication store
+import { useNavigate } from 'react-router-dom' // import react-router-dom hook
 import './Login.css'
 import googleIcon from '../../assets/icons/google.png'
 import projectLogo from '../../assets/images/logo.png'
@@ -15,6 +16,9 @@ import UserDao from '../../daos/UserDao'
 const Login = () => {
 	// Destructure states and functions from the store
 	const { user,loading ,observeAuthState, loginGoogleWithPopUp, logout } = useAuthStore()
+
+	// hook useNavigate created
+	const navigate = useNavigate()
 
 	/**
    		* useEffect to ensure the observeAuthState function runs when the component mounts.
@@ -63,8 +67,9 @@ const Login = () => {
 			}
 
 			UserDao.createUser(newUser)
+			navigate('/Escene')
 		}
-	}, [user])
+	}, [user, navigate])
 
 	/**
    		* If the `loading` state is `true`, displays a text saying "Loading..."
