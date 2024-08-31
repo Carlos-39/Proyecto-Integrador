@@ -1,7 +1,7 @@
-// manejo de la autenticación
+// authentication management
 
 import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore'; // servicio de la base de datos
+import { getFirestore } from 'firebase/firestore'; // database service
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -21,6 +21,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-//inicializar autenticación de firebase y obtener una referencia al servicio
+//initialize firebase authentication and get a reference to the service
 export const auth = getAuth(app);
-export const db = getFirestore(app)// servicio de la base de datos
+export const db = getFirestore(app) // database service

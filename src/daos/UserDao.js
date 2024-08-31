@@ -2,26 +2,26 @@ import { collection, getDoc, doc, addDoc, updateDoc, deleteDoc } from "firebase/
 import { db } from "../../firebase.config";
 
 /**
- 	* Clase UserDao para interactuar con la colección 'users' en Firestore.
- 	* Proporciona métodos para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar)
- 	* en los documentos de usuarios almacenados en Firestore.
+ 	* UserDao class to interact with the 'users' collection in Firestore.
+ 	* Provides methods for performing CRUD (Create, Read, Update, Delete) operations
+ 	* on user documents stored in Firestore.
  */
 class UserDao {
 	/**
-	 	* Constructor de la clase UserDao.
-	 	* Crea una referencia a la colección 'users' en la base de datos Firestore.
+	 	* Constructor of the UserDao class.
+	 	* Creates a reference to the 'users' collection in the Firestore database.
 	 */
 	constructor() {
 		this.collectionRef = collection(db, "users")
 	}
 
 	/**
-	 	* Obtiene un documento de usuario por su ID.
+	 	* Gets a user document by its ID.
 	 	*
 	 	* @async
 	 	* @function
-	 	* @param {string} id - El ID del usuario a buscar.
-	 	* @returns {Promise<Object>} - Un objeto que indica el éxito o fracaso de la operación y los datos del usuario si existe.
+	 	* @param {string} id - The ID of the user to search for.
+	 	* @returns {Promise<Object>} - An object indicating the success or failure of the operation and the user data if it exists.
 	 */
 	async getUserById(id) {
 		await getDoc(doc(this.collectionRef, id))
@@ -38,12 +38,12 @@ class UserDao {
 	}
 
 	/**
-		* Crea un nuevo usuario en la base de datos.
+		* Creates a new user in the database.
 		*
 		* @async
 		* @function
-		* @param {Object} userData - Un objeto que contiene los datos del usuario a añadir.
-		* @returns {Promise<void>} - Una promesa que se resuelve cuando el usuario ha sido añadido correctamente.
+		* @param {Object} userData - An object containing the user's data to add.
+		* @returns {Promise<void>} - A promise that resolves when the user has been successfully added.
 	 */
 	async createUser(userData) {
 		await addDoc(this.collectionRef, userData)
@@ -56,13 +56,13 @@ class UserDao {
 	}
 
 	/**
-	 	* Actualiza un documento de usuario existente en la base de datos.
+	 	* Updates an existing user document in the database.
 	 	*
 	 	* @async
 	 	* @function
-	 	* @param {string} id - El ID del usuario a actualizar.
-	 	* @param {Object} userData - Un objeto que contiene los nuevos datos del usuario.
-	 	* @returns {Promise<void>} - Una promesa que se resuelve cuando el usuario ha sido actualizado correctamente.
+	 	* @param {string} id - The ID of the user to update.
+	 	* @param {Object} userData - An object containing the new user data.
+	 	* @returns {Promise<void>} - A promise that resolves when the user has been successfully updated.
 	 */
 	async updateUser(id, userData) {
 		const userRef = doc(this.collectionRef, id)
@@ -75,12 +75,12 @@ class UserDao {
 	}
 
 	/**
-	 	* Elimina un documento de usuario de la base de datos por su ID.
+	 	* Deletes a user document from the database by its ID.
 	 	*
 	 	* @async
 	 	* @function
-	 	* @param {string} id - El ID del usuario a eliminar.
-	 	* @returns {Promise<void>} - Una promesa que se resuelve cuando el usuario ha sido eliminado correctamente.
+	 	* @param {string} id - The ID of the user to delete.
+	 	* @returns {Promise<void>} - A promise that resolves when the user has been successfully deleted.
 	 */
 	async deleteUser(id) {
 		await deleteDoc(doc(this.collectionRef, id))
