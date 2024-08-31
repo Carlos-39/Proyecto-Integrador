@@ -1,35 +1,35 @@
-import { create } from 'zustand' // import del create de Zustand para crear el hook (contexto)
-import { GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth'; // Import de las funciones necesarias desde Firebase Auth
-import { auth } from '../../firebase.config' // Import de la configuración de Firebase
+import { create } from 'zustand' // Import 'create' from Zustand to create the hook (context)
+import { GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth'; // Import necessary functions from Firebase Auth
+import { auth } from '../../firebase.config' // Import Firebase configuration
 
-// Proveedor de autenticación de google
+// Google authentication provider
 const provider = new GoogleAuthProvider()
 
 /**
- 	* Store de Zustand para manejar la autenticación con Google.
+ 	* Zustand store for handling authentication with Google.
  	* 
  	* @typedef {Object} AuthStore
- 	* @property {Object|null} user - Estado del usuario autenticado
- 	* @property {boolean} loading - Estado de carga
- 	* @property {function(): Promise<void>} loginGoogleWithPopUp - Iniciar sesión con Google a través de un popup.
- 	* @property {function(): Promise<void>} logout - Cierra la sesión del usuario.
- 	* @property {function(): void} observeAuthState - Observa los cambios en el estado de autenticación.
+ 	* @property {Object|null} user - Authenticated user state
+ 	* @property {boolean} loading - Loading state
+ 	* @property {function(): Promise<void>} loginGoogleWithPopUp - Sign in with Google using a popup.
+ 	* @property {function(): Promise<void>} logout - Logs out the user.
+ 	* @property {function(): void} observeAuthState - Observes changes in the authentication state.
  */
 const useAuthStore = create((set) => ({
 	/**
-   		* Estado del usuario autenticado.
+   		* State of the authenticated user.
    		* @type {Object|null}
    */
 	user: null,
 	/**
-   		* Estado de carga de la autenticación.
+   		* Loading state for authentication.
    		* @type {boolean}
    */
 	loading: true,
 
 	/**
-   		* Función asíncrona que maneja el inicio de sesión con Google a través de un popup.
-   		* Actualiza el estado del usuario en caso de éxito.
+   		* Asynchronous function that handles sign-in with Google using a popup.
+   		* Updates the user state on success.
    		* 
    		* @async
    		* @function
@@ -43,8 +43,8 @@ const useAuthStore = create((set) => ({
 	},
 
 	/**
-   		* Función asíncrona que maneja el cierre de sesión del usuario.
-   		* Actualiza el estado del usuario a `null` en caso de éxito.
+   		* Asynchronous function that handles logging out the user.
+   		* Updates the user state to `null` on success.
    		* 
    		* @async
    		* @function
@@ -53,27 +53,27 @@ const useAuthStore = create((set) => ({
 	logout: async () => {
 		await signOut(auth)
 			.then(() => {
-				set({ user: null}) // Reinicia el estado del usuario tras cerrar sesión
+				set({ user: null}) // Resets the user state after logging out
 			})
 			.catch((error) => {
-				console.log(error) // Muestra un error si ocurre durante el cierre de sesión
+				console.log(error) // Logs an error if one occurs during logout
 			})
 	},
 
 	/**
-   		* Función que observa los cambios en el estado de autenticación.
-   		* Actualiza el estado de `user` y `loading` basado en la autenticación actual.
+   		* Function that observes changes in the authentication state.
+   		* Updates the `user` and `loading` state based on the current authentication status.
    		* 
    		* @function
    */
 	observeAuthState: () => {
-		set({ loading: true }) // Establece el estado de carga mientras se observa el estado
+		set({ loading: true }) // Sets the loading state while observing authentication state
 
 		onAuthStateChanged(auth, (user) => {
 			if(user) {
-				set({ user, loading: false }) // Actualiza el estado cuando el usuario está autenticado
+				set({ user, loading: false }) // Updates state when the user is authenticated
 			} else {
-				set({ user: null, loading: false }) // Reinicia el estado cuando no hay usuario autenticado
+				set({ user: null, loading: false }) // Resets state when no user is authenticated
 			}
 		})
 	}
