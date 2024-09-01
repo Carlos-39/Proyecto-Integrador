@@ -6,6 +6,29 @@ import './index.css'
 import Login from './pages/Login/Login'
 import Escene from './pages/inicio/Escene'
 
+//elemnt for the error 404 page
+const E404 = () =>
+{
+  //defines the style of the page
+  const divStyle =
+  {
+    width: "100%",
+    height: "100%",
+    display:"flex",
+    backgroundColor: "#BCDAFA",
+    justifyContent: "center",
+    alignItems: "center",
+    color: "#0A131B",
+    fontSize: "2vw",
+  }
+
+  //define the page elemnt
+  return (
+  <div style={divStyle}>
+    <h1>We couldn't find the page you were looking for</h1>
+  </div>);
+}
+
 // route handler entry point
 const router = createBrowserRouter([
   {

@@ -13,6 +13,13 @@ const Escene = () => {
     user: state.user
   }));
 
+  //send the user to the login if isn't loged in
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(user == null) navigate('/')
+  },[user, navigate])
+
   //closes user account
   const handleLogout = async () => {
       await logout()
