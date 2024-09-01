@@ -50,15 +50,16 @@ const useAuthStore = create((set) => ({
    		* @function
    		* @returns {Promise<void>}
    */
+	
 	logout: async () => {
-		await signOut(auth)
-			.then(() => {
-				set({ user: null}) // Resets the user state after logging out
-			})
-			.catch((error) => {
-				console.log(error) // Logs an error if one occurs during logout
-			})
-	},
+		try {
+		  await signOut(auth);
+		  set({ user: null });
+		  console.log('Logout successful');
+		} catch (error) {
+		  console.error('Logout error:', error);
+		}
+	  },
 
 	/**
    		* Function that observes changes in the authentication state.
