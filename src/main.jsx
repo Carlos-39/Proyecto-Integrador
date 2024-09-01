@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 
 import Login from './pages/Login/Login'
-import Escene from './Escene'
+import Escene from './pages/inicio/Escene'
 
 // route handler entry point
 const router = createBrowserRouter([
@@ -15,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: '/Escene',
     element: <Escene />
+  },
+  {
+    path: '*',
+    element: <E404/>
   }
 ])
 

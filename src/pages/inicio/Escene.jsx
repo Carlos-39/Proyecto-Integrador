@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import CloudObject from './CloudObject';
-import useAuthStore from './stores/use-auth-store'; // Adjust the import path as needed
+import useAuthStore from '../../stores/use-auth-store'; // Adjust the import path as needed
 import './Escene.css';
+import { useNavigate } from 'react-router-dom';
 
+
+// Destructure states and functions from the store
 const Escene = () => {
   const { logout, user } = useAuthStore(state => ({
     logout: state.logout,
     user: state.user
   }));
 
+  //closes user account
   const handleLogout = async () => {
       await logout()
-      navigate('/')
   };
 
   return (
