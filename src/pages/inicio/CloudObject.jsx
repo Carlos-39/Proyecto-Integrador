@@ -1,9 +1,10 @@
-import { TrackballControls } from "@react-three/drei";
+import { TrackballControls } from "@react-three/drei"; //library for the controllers
 import { useRef } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber"; //library to animate the object
 
 const CloudObject = () => 
     {
+        //defines the animation of the cloud
         const model = useRef(null);
         let x = 0
         useFrame((state, delta) => {
@@ -15,6 +16,7 @@ const CloudObject = () =>
                 }
         })
 
+        //defines the cloud model shape and texture
         return <>
             <TrackballControls
                 noPan={true}
