@@ -59,17 +59,25 @@ const Login = () => {
    		* @function useEffect
     */
 	useEffect(() => {
-		if(user) {
-			const newUser = {
-				email: user.email,
-				name: user.displayName,
-				photo: user.photoURL
+		const createUserIfNotExists = async () => {
+			if (user) {
+				const existingUser = await UserDao.getUserByEmail(user.email);
+	
+				if (!existingUser.success) {
+					const newUser = {
+						email: user.email,
+						name: user.displayName,
+						photo: user.photoURL
+					};
+	
+					await UserDao.createUser(newUser);
+				}
+				navigate('/Escene');
 			}
-
-			UserDao.createUser(newUser)
-			navigate('/Escene')
-		}
-	}, [user, navigate])
+		};
+	
+		createUserIfNotExists();
+	}, [user, navigate]);	
 
 	/**
    		* If the `loading` state is `true`, displays a text saying "Loading..."
