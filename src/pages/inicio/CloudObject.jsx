@@ -19,7 +19,7 @@ const CloudObject = () =>
         //defines the cloud model shape and texture
         return <>
             <TrackballControls
-                noPan={true}
+                noPan={false}
                 noRotate={true}
             />
             <ambientLight intensity={0.5}/>
