@@ -1,4 +1,3 @@
-import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import CloudObject from './CloudObject';
 import useAuthStore from './stores/use-auth-store'; // Adjust the import path as needed
@@ -12,7 +11,6 @@ const Escene = () => {
 
   const handleLogout = async () => {
       await logout()
-      navigate('/')
   };
 
   return (
