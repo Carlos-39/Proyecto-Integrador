@@ -22,7 +22,7 @@ const E404 = () =>
     fontSize: "2vw",
   }
 
-  //define the page elemnt
+  //define the page element
   return (
   <div style={divStyle}>
     <h1>We couldn't find the page you were looking for</h1>
