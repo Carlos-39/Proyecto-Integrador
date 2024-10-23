@@ -1,0 +1,68 @@
+*
+{
+    margin: 0px;
+}
+
+#Inicio #Introduccion
+{
+    background-image: url("../../assets/images/fondoIntroduccion.png");
+    background-repeat: no-repeat;
+    background-attachment: static;
+    background-position-x: center;
+    background-position-y: top;
+    background-size: 100% auto;
+    height: 1200px;
+    width: 100%;
+}
+
+#Inicio #logo
+{
+    width: 92vw;
+    margin-left: 4vw;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row;
+    justify-content: center; 
+    align-items: center;
+}
+
+#Inicio #content
+{
+    margin: 4vw;
+    padding: 4vw;
+    border-radius: 24px;
+    background-image: linear-gradient(to right, rgba(217, 217, 217, 0.77) 28%, rgba(115, 115, 115, 0.77) 89%);
+    background-color: rgba(255,255,255,0.3);
+}
+
+#Inicio #Tutorial div
+{
+    box-sizing: border-box;
+    background-color: 16px;
+    width: 15%;
+    padding: 16px;
+    border-radius: 16px;
+}
+
+#Inicio #Tutorial div div
+{
+    width: 100%;
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Inicio #Tutorial div img
+{
+    width: 100%;
+}
+
+#Inicio #Tutorial
+{
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    flex-flow: row;
+}

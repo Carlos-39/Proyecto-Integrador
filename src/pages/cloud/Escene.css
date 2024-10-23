@@ -1,4 +1,4 @@
-html, body, #root {
+#cloud {
   position: fixed;
   top: 0;
   left: 0;
@@ -7,17 +7,17 @@ html, body, #root {
   background-color: rgb(145, 214, 214);
 }
 
-.scene-container {
+#cloud .scene-container {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-canvas {
+#cloud canvas {
   touch-action: none;
 }
 
-.logout-button {
+#cloud .logout-button {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -33,7 +33,7 @@ canvas {
   transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-.logout-button:hover {
+#cloud .logout-button:hover {
   background: linear-gradient(135deg, #ff5a5a, #ff7936);
   transform: scale(1.05);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
