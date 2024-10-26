@@ -3,19 +3,20 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 
+import Inicio from './pages/inicio/Inicio'
 import Login from './pages/Login/Login'
-import Escene from './pages/inicio/Escene'
+// import Escene from './pages/cloud/Escene'
 import NotFound from './pages/Not-Found/NotFound'
 
 // route handler entry point
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Login />
+    element: <Inicio />
   },
   {
-    path: '/Escene',
-    element: <Escene />
+    path: '/Login',
+    element: <Login />
   },
   {
     path: '*',
