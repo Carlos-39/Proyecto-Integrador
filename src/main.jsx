@@ -5,6 +5,7 @@ import './index.css'
 
 import Inicio from './pages/Inicio/Inicio'
 import Login from './pages/Login/Login'
+import MainMenu from './pages/Menu_Principal/MainMenu' 
 // import Escene from './pages/cloud/Escene'
 import NotFound from './pages/Not-Found/NotFound'
 
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: '/Login',
     element: <Login />
+  },
+  {
+    path: '/MainMenu',
+    element: <MainMenu />
   },
   {
     path: '*',
