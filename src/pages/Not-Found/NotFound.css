@@ -1,5 +1,7 @@
-body{
-    overflow: hidden;
+/* Estilo del scrollbar */
+body::-webkit-scrollbar {
+    width: 0px;
+    background-color: transparent;
 }
 
 .container-E404 {

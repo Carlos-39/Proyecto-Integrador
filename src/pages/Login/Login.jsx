@@ -106,7 +106,7 @@ const Login = () => {
 
 	return (
 		<>
-			<main>
+			<main className='main-container'>
 				<section className='container-login'>
 					<div className='container-login--img'>
 						<img src={projectLogo} alt="project logo" />
