@@ -72,7 +72,7 @@ const Login = () => {
 	
 					await UserDao.createUser(newUser);
 				}
-				navigate('/NotFound'); // esto se cambia después por la ruta del menu principal
+				navigate('/MainMenu'); // esto se cambia después por la ruta del menu principal
 			}
 		};
 	
