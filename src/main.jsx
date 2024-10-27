@@ -5,6 +5,7 @@ import './index.css'
 
 import Login from './pages/Login/Login'
 import Escene from './pages/inicio/Escene'
+import MainMenu from './pages/Menu_Principal/MainMenu' 
 import NotFound from './pages/Not-Found/NotFound'
 
 // route handler entry point
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: '/Escene',
     element: <Escene />
+  },
+  {
+    path: '/MainMenu',
+    element: <MainMenu />
   },
   {
     path: '*',
