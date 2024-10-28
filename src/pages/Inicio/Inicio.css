@@ -3,6 +3,27 @@
 	background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,51,102,1) 0%, rgba(51,153,255,1) 100%);
 }
 
+/* Botón de acceder en la parte superior derecha */
+.login-button {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	background-color: rgba(255, 255, 255, 0.5);
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.3s ease;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #000;
+}
+
+.login-button:hover {
+	background-color: rgba(255, 255, 255, 0.9);
+	transform: scale(1.05);
+}
+
 .header-container{
 	background-image: url('../../assets/images/fondoIntroduccion.jpg');
 	background-size: cover;
@@ -58,7 +79,7 @@
 	transition: background-color 0.3s ease, transform 0.3s ease;
 	border-radius: 5px;
 	font-size: 1.6rem;
-	font-weight: 600;
+	font-weight: bold;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 

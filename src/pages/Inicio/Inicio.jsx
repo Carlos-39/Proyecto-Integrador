@@ -27,6 +27,9 @@ const Inicio = () => {
 	return (
 		<div className='background'>
 			<header className='header-container'>
+				<div className='login-button' onClick={goToLogin}>
+					<p>Acceder</p>
+				</div>
 				<div className='container-title'>
 					<img src={projectLogo} alt="project logo" />
 					<h1>BlueSphere Studios</h1>
@@ -51,22 +54,22 @@ const Inicio = () => {
 					<article className='section-detail--card'>
 						<span className='icon1'></span>
 						<p className='detail-card--title'>Explora las secciones</p>
-						<p className='detail-card--body'>Usa el menú para navegar entre los distintos temas que tenemos para ofrecerte</p>
+						<p className='detail-card--body'>Usa el menú para navegar entre los distintos temas que tenemos para ofrecerte.</p>
 					</article>
 					<article className='section-detail--card'>
 						<span className='icon2'></span>
-						<p className='detail-card--title'>Explora las secciones</p>
-						<p className='detail-card--body'>Usa el menú para navegar entre los distintos temas que tenemos para ofrecerte</p>
+						<p className='detail-card--title'>Interactúa con los elementos 3D</p>
+						<p className='detail-card--body'>Cada sección incluye elementos visuales 3D con los cuales podrás observar los efectos de estos problemas en diferentes escenarios.</p>
 					</article>
 					<article className='section-detail--card'>
 						<span className='icon3'></span>
-						<p className='detail-card--title'>Explora las secciones</p>
-						<p className='detail-card--body'>Usa el menú para navegar entre los distintos temas que tenemos para ofrecerte</p>
+						<p className='detail-card--title'>Participa en las pruebas</p>
+						<p className='detail-card--body'>Después de explorar cada tema, pondremos a prueba lo que has aprendido con un quiz interactivo.</p>
 					</article>
 					<article className='section-detail--card'>
 						<span className='icon4'></span>
-						<p className='detail-card--title'>Explora las secciones</p>
-						<p className='detail-card--body'>Usa el menú para navegar entre los distintos temas que tenemos para ofrecerte</p>
+						<p className='detail-card--title'>Gana Trofeos y Comparte tus Logros</p>
+						<p className='detail-card--body'>Por cada quiz completado con éxito, recibirás un trofeo que aparecerá en tu colección personal.</p>
 					</article>
 				</div>
 			</section>
