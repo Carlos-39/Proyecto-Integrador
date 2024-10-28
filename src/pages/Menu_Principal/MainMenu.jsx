@@ -1,34 +1,40 @@
-import React from 'react';
-import './MainMenu.css';
-import { useNavigate } from 'react-router-dom';
-import useAuthStore from '../../stores/use-auth-store';
-import { FaWater, FaExclamationTriangle, FaRecycle, FaTrophy } from 'react-icons/fa'; // Importar iconos
-import projectLogo from '../../assets/images/logo.png'; // Asegúrate de que la ruta sea correcta
-import contaminacionImage from '../../assets/images/contaminacion.jpg'; // Ruta de imagen
-import escacezAguaImage from '../../assets/images/escacez_agua.jpg'; // Ruta de imagen
-import acidificacionImage from '../../assets/images/acidificacion.jpg'; // Ruta de imagen
+import React from "react";
+import "./MainMenu.css";
+import { useNavigate } from "react-router-dom";
+import useAuthStore from "../../stores/use-auth-store";
+import {
+  FaWater,
+  FaExclamationTriangle,
+  FaRecycle,
+  FaTrophy,
+} from "react-icons/fa";
+import projectLogo from "../../assets/images/logo.png";
+import contaminacionImage from "../../assets/images/contaminacion.jpg";
+import escacezAguaImage from "../../assets/images/escacez_agua.jpg";
+import acidificacionImage from "../../assets/images/acidificacion.jpg";
 
 const menuItems = [
   {
-    title: 'Contaminación del Agua',
-    description: 'Explora los efectos de la contaminación en nuestros recursos hídricos.',
+    title: "Contaminación del Agua",
+    description:
+      "Explora los efectos de la contaminación en nuestros recursos hídricos.",
     icon: <FaWater />,
     image: contaminacionImage,
-    link: '/pollution',
+    link: "/pollution",
   },
   {
-    title: 'Escasez de Agua',
-    description: 'Descubre las causas y soluciones para la escasez de agua.',
+    title: "Escasez de Agua",
+    description: "Descubre las causas y soluciones para la escasez de agua.",
     icon: <FaExclamationTriangle />,
     image: escacezAguaImage,
-    link: '/scarcity',
+    link: "/scarcity",
   },
   {
-    title: 'Acidificación de los Océanos',
-    description: 'Entiende el impacto de la acidificación en la vida marina.',
+    title: "Acidificación de los Océanos",
+    description: "Entiende el impacto de la acidificación en la vida marina.",
     icon: <FaRecycle />,
     image: acidificacionImage,
-    link: '/ocean-acidification',
+    link: "/ocean-acidification",
   },
 ];
 
@@ -43,21 +49,27 @@ const MainMenu = () => {
   const capitalizeWords = (text) => {
     return text
       .toLowerCase()
-      .split(' ')
+      .split(" ")
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
+      .join(" ");
   };
 
-  const username = user ? capitalizeWords(user.displayName) : 'Invitado';
+  const username = user ? capitalizeWords(user.displayName) : "Invitado";
 
   return (
     <div className="main-menu">
       <header className="header">
         <div className="logo-container">
-          <img src={projectLogo} alt="BlueSphere Studios Logo" className="logo" />
+          <img
+            src={projectLogo}
+            alt="BlueSphere Studios Logo"
+            className="logo"
+          />
           <div className="company-info">
             <h1 className="title">BlueSphere Studios</h1>
-            <p className="subtitle">Explora los Problemas Ambientales del Agua</p>
+            <p className="subtitle">
+              Explora los Problemas Ambientales del Agua
+            </p>
           </div>
         </div>
         <div className="user-info">
@@ -70,31 +82,26 @@ const MainMenu = () => {
       </header>
       <div className="text-container">
         <div className="transparent-box">
-          <p className="main-text">El agua es vida, pero nuestra falta de acción la está poniendo en peligro</p>
-          <p className="description-text">Conoce la importancia de conservar nuestros recursos hídricos y actúa hoy.</p>
-          
-          {/* Descripción fuera del contenedor de las tarjetas */}
-          <div className="description-container">
-            <p className="detailed-description">
-              Este proyecto busca enseñar sobre los problemas ambientales del agua, como la contaminación, la escasez y la acidificación de los océanos. Creamos una página web en 3D que permite a los usuarios aprender de manera divertida e interactiva, usando tecnologías como React, Three.js, y Firebase.
-            </p>
-          </div>
-          
-          {/* Contenedor de las cards */}
-          <div className="card-container">
-            {menuItems.map((item, index) => (
-              <div className="card" key={index}>
-                <a href={item.link}>
-                  <img src={item.image} alt={item.title} className="card-image" />
-                  <div className="card-content">
-                    <h2 className="card-title">{item.icon} {item.title}</h2>
-                    <p className="card-description">{item.description}</p>
-                  </div>
-                </a>
-              </div>
-            ))}
-          </div>
+          <p className="main-text">
+          Aprendiendo a proteger el agua del planeta, un proyecto a la vez, utilizando lo último en tecnología interactiva.
+          </p>
         </div>
+      </div>
+
+      <div className="card-container">
+        {menuItems.map((item, index) => (
+          <div className="card" key={index}>
+            <a href={item.link}>
+              <img src={item.image} alt={item.title} className="card-image" />
+              <div className="card-content">
+                <h2 className="card-title">
+                  {item.icon} {item.title}
+                </h2>
+                <p className="card-description">{item.description}</p>
+              </div>
+            </a>
+          </div>
+        ))}
       </div>
       <footer className="footer">
         <p>&copy; 2024 BlueSphere Studios. Todos los derechos reservados.</p>
