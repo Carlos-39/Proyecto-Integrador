@@ -1,4 +1,4 @@
-import { TrackballControls } from "@react-three/drei"; //library for the controllers
+import { OrbitControls } from "@react-three/drei"; //library for the controllers
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber"; //library to animate the object
 
@@ -18,9 +18,11 @@ const CloudObject = () =>
 
         //defines the cloud model shape and texture
         return <>
-            <TrackballControls
-                noPan={false}
-                noRotate={true}
+            <OrbitControls
+                enablePan={false}
+                enableRotate={false}
+                enableZoom={false}
+                autoRotate={true}
             />
             <ambientLight intensity={0.5}/>
             <directionalLight position={[0,10,10]}/>
