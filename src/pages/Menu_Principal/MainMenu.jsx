@@ -13,27 +13,28 @@ import contaminacionImage from "../../assets/images/contaminacion.jpg";
 import escacezAguaImage from "../../assets/images/escacez_agua.jpg";
 import acidificacionImage from "../../assets/images/acidificacion.jpg";
 import Escene from "../../components/main-menu-3d-canvas/Escene.jsx"
+import Scarcity from "../../components/main-menu-3d-canvas/scarcity.jsx"
 const menuItems = [
   {
     title: "Contaminación del Agua",
     description:
       "Explora los efectos de la contaminación en nuestros recursos hídricos.",
     icon: <FaWater />,
-    image: <Escene/>,
+    image: <Escene x={1} y={1} z={1}/>,
     link: "/pollution",
   },
   {
     title: "Escasez de Agua",
     description: "Descubre las causas y soluciones para la escasez de agua.",
     icon: <FaExclamationTriangle />,
-    image: <Escene/>,
+    image: <Escene escenario={<Scarcity/>} x={1} y={1} z={1} />,
     link: "/scarcity",
   },
   {
     title: "Acidificación de los Océanos",
     description: "Entiende el impacto de la acidificación en la vida marina.",
     icon: <FaRecycle />,
-    image: <Escene/>,
+    image: <Escene x={1} y={1} z={1}/>,
     link: "/ocean-acidification",
   },
 ];
