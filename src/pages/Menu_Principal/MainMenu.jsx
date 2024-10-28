@@ -12,28 +12,28 @@ import projectLogo from "../../assets/images/logo.png";
 import contaminacionImage from "../../assets/images/contaminacion.jpg";
 import escacezAguaImage from "../../assets/images/escacez_agua.jpg";
 import acidificacionImage from "../../assets/images/acidificacion.jpg";
-
+import Escene from "../../components/main-menu-3d-canvas/Escene.jsx"
 const menuItems = [
   {
     title: "Contaminación del Agua",
     description:
       "Explora los efectos de la contaminación en nuestros recursos hídricos.",
     icon: <FaWater />,
-    image: contaminacionImage,
+    image: <Escene/>,
     link: "/pollution",
   },
   {
     title: "Escasez de Agua",
     description: "Descubre las causas y soluciones para la escasez de agua.",
     icon: <FaExclamationTriangle />,
-    image: escacezAguaImage,
+    image: <Escene/>,
     link: "/scarcity",
   },
   {
     title: "Acidificación de los Océanos",
     description: "Entiende el impacto de la acidificación en la vida marina.",
     icon: <FaRecycle />,
-    image: acidificacionImage,
+    image: <Escene/>,
     link: "/ocean-acidification",
   },
 ];
@@ -92,7 +92,7 @@ const MainMenu = () => {
         {menuItems.map((item, index) => (
           <div className="card" key={index}>
             <a href={item.link}>
-              <img src={item.image} alt={item.title} className="card-image" />
+              {item.image}
               <div className="card-content">
                 <h2 className="card-title">
                   {item.icon} {item.title}
