@@ -26,7 +26,7 @@ const Escene = () => {
   };
 
   return (
-    <div className="scene-container" id='cloud'>
+    <div className="scene-container">
       <Canvas camera={{ position: [3, 6, 6] }}>
         <CloudObject />
       </Canvas>
