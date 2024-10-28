@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap'); /* Importa la fuente Montserrat */
+
+.main-menu {
+  background-image: url('../../assets/images/oceano.jpeg'); /* Asegúrate de que la ruta sea correcta */
+  background-size: cover;
+  min-height: 100vh;
+  color: black; /* Cambia el color del texto a negro */
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.6); /* Fondo blanco semi-transparente */
+  backdrop-filter: blur(10px); /* Efecto de desenfoque de fondo */
+  border-radius: 10px; /* Esquinas redondeadas */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 120px; /* Cambia este valor según tus necesidades */
+  height: auto; /* Mantiene la proporción del logo */
+}
+
+.company-info {
+  margin-left: 15px; /* Espacio entre el logo y el texto de la compañía */
+}
+
+.title {
+  font-size: 2.5rem; /* Ajusta el tamaño del título */
+  font-weight: bold; /* Mantén el texto en negrita */
+  font-style: italic; /* Aplica estilo cursivo */
+}
+
+.subtitle {
+  font-size: 1.2rem; /* Aumenta el tamaño de la fuente del subtítulo */
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Empuja el contenido a la derecha */
+}
+
+.username {
+  margin-right: 10px; /* Espacio entre el nombre de usuario y el ícono de trofeos */
+  font-size: 1.2rem; /* Tamaño del texto del nombre de usuario */
+  color: black; /* Color del nombre de usuario */
+}
+
+.text-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente el contenido */
+  margin: 20px 0; /* Espacio alrededor del contenedor de texto */
+}
+
+.transparent-box {
+  background-color: rgba(255, 255, 255, 0.5); /* Fondo blanco con mayor transparencia */
+  padding: 20px; /* Espacio interno */
+  border-radius: 10px; /* Esquinas redondeadas */
+}
+
+.main-text {
+  font-size: 1.5rem; /* Ajusta el tamaño del texto principal */
+  text-align: left; /* Alinea el texto a la izquierda */
+  color: black; /* Color del texto */
+}
+
+.card-container {
+  display: flex; /* Alinea las tarjetas horizontalmente */
+  justify-content: flex-end; /* Coloca las tarjetas a la derecha */
+  margin-top: 20px; /* Espacio encima de las tarjetas */
+}
+
+.card {
+  width: 100px; /* Ajusta el tamaño de las tarjetas */
+  margin: 0 10px; /* Espacio entre las tarjetas */
+  background-color: rgba(255, 255, 255, 0.7); /* Fondo semi-transparente para las tarjetas */
+  border-radius: 10px; /* Esquinas redondeadas */
+  display: flex;
+  flex-direction: column; /* Cambia la dirección de los elementos dentro de la tarjeta */
+  align-items: center;
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  transition: transform 0.2s; /* Transición suave */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Efecto de agrandamiento al pasar el ratón */
+}
+
+.card-image {
+  width: 100%; /* La imagen ocupará todo el ancho de la tarjeta */
+  border-radius: 10px; /* Bordes redondeados para la imagen */
+}
+
+.card-title {
+  font-size: 1rem; /* Ajusta el tamaño del título de la tarjeta */
+  text-align: center; /* Centra el texto */
+}
+
+.footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Estilos para el ícono del trofeo */
+.trophy-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}
+
+.trophy-icon {
+  font-size: 1.5rem; /* Tamaño del ícono de trofeos */
+  color: gold; /* Color dorado para el ícono */
+}
+
+.trophy-icon:hover {
+  transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
+  color: #FFD700; /* Color dorado al pasar el mouse */
+}
+
+.trophy-text {
+  margin-left: 5px; /* Espacio entre el ícono y el texto */
+  font-size: 1.2rem; /* Tamaño del texto del trofeo */
+}
+
+.trophy-container:hover .trophy-text {
+  text-decoration: underline; /* Subrayar el texto al pasar el mouse */
+}
+
+.description-container {
+  margin: 20px 0; /* Espacio alrededor del contenedor de descripción */
+  text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.detailed-description {
+  font-size: 1rem; /* Tamaño de fuente para la descripción detallada */
+  color: black; /* Color del texto */
+}

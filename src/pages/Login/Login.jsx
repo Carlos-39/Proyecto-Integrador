@@ -72,7 +72,7 @@ const Login = () => {
 	
 					await UserDao.createUser(newUser);
 				}
-				navigate('/Escene');
+				navigate('/NotFound'); // esto se cambia después por la ruta del menu principal
 			}
 		};
 	
@@ -106,7 +106,7 @@ const Login = () => {
 
 	return (
 		<>
-			<main>
+			<main className='main-container'>
 				<section className='container-login'>
 					<div className='container-login--img'>
 						<img src={projectLogo} alt="project logo" />
