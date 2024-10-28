@@ -7,7 +7,7 @@ import './Escene.css';
 const Escene = (props) => {
   return (
     <div className="scene-container" style={{width: "100%", aspectRatio: "16/9"}}>
-      <Canvas camera={{ position: [3, 6, 6] }}>
+      <Canvas camera={{ position: [props.x, props.y, props.z] }}>
         {props.escenario}
       </Canvas>
     </div>
