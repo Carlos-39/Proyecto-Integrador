@@ -38,7 +38,7 @@ const menuItems = [
     title: "Acidificación de los Océanos",
     description: "Entiende el impacto de la acidificación en la vida marina.",
     icon: <FaRecycle />,
-    image: <Escene escenario={<Acidification/>} x={2} y={1} z={9} bgImage={bgAcidification}/>,=======
+    image: <Escene escenario={<Acidification/>} x={2} y={1} z={9} bgImage={bgAcidification}/>,
     link: "/ocean-acidification",
   },
 ];
