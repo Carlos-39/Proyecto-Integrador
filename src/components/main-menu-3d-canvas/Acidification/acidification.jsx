@@ -90,7 +90,6 @@ const Acidification = () => {
         scale={0.8}
       />
 
-      {/* Burbujas más grandes */}
       {Array.from({ length: 200 }, (_, i) => (
         <mesh
           key={i}
