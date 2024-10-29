@@ -13,7 +13,9 @@ import contaminacionImage from "../../assets/images/contaminacion.jpg";
 import escacezAguaImage from "../../assets/images/escacez_agua.jpg";
 import acidificacionImage from "../../assets/images/acidificacion.jpg";
 import Escene from "../../components/main-menu-3d-canvas/Escene.jsx"
-import Scarcity from "../../components/main-menu-3d-canvas/scarcity.jsx"
+import Scarcity from "../../components/main-menu-3d-canvas/Scarcity/scarcity.jsx"
+import bgScarcity from "../../assets/images/skybox-scarcity.jpg"
+
 const menuItems = [
   {
     title: "Contaminación del Agua",
@@ -27,7 +29,7 @@ const menuItems = [
     title: "Escasez de Agua",
     description: "Descubre las causas y soluciones para la escasez de agua.",
     icon: <FaExclamationTriangle />,
-    image: <Escene escenario={<Scarcity/>} x={1} y={1} z={1} />,
+    image: <Escene escenario={<Scarcity/>} x={2} y={1} z={6} bgImage={bgScarcity}/>,
     link: "/scarcity",
   },
   {
