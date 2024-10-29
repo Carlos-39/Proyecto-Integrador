@@ -8,6 +8,7 @@ import Login from './pages/Login/Login'
 import MainMenu from './pages/Menu_Principal/MainMenu' 
 // import Escene from './pages/cloud/Escene'
 import NotFound from './pages/Not-Found/NotFound'
+import Tutorial from './pages/Tutorial/Tutorial'
 
 // route handler entry point
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: '*',
     element: <NotFound/>
+  },
+  {
+    path: '/Tutorial',
+    element: <Tutorial />
   }
 ])
 
