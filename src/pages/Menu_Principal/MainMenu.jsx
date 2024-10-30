@@ -24,7 +24,7 @@ const menuItems = [
   {
     title: "Contaminación del Agua",
     description:
-      "Explora los efectos de la contaminación en nuestros recursos hídricos.",
+      "Descubre cómo la contaminación afecta nuestros recursos hídricos, amenazando la biodiversidad y la salud humana, y qué podemos hacer para enfrentarlo.",
     icon: <FaWater />,
     image: <Escene escenario={<Pollution />} bgImage={bgPollution} x={1} y={1} z={1}/>,
     link: "/pollution",
