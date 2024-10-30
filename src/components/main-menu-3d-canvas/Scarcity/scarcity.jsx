@@ -1,5 +1,6 @@
 import { OrbitControls, useTexture, useGLTF  } from "@react-three/drei"; //library for the controllers
 import { useMemo } from "react";
+import { Cactus, BizonSkull, Can } from "../Scarcity/scarcity-models.jsx"
 
 const Desert = () => 
     {
@@ -7,7 +8,7 @@ const Desert = () =>
         const PATH = useMemo(() => "materials/mud-cracked/mud_cracked_dry_03_", []);
         const floorTexture = useTexture({
             map: PATH + "diff_1k.jpg",
-            normalMap: PATH + "nor_gl_1k.jpg",
+            displacementMap: PATH + "disp_1k.png",
             roughnessMap: PATH + "rough_1k.jpg",
             ambientOcclusionMap: PATH + "ao_1k.jpg",
         });
@@ -15,17 +16,6 @@ const Desert = () =>
             texture.wrapS = texture.wrapT = texture.RepeatWrapping;
             texture.repeat.set(4, 4); // Adjust repetition here
         });
-    
-        // Importa el modelo 3d del craneo
-        const skull = useGLTF("models/bizon-skull.glb");
-        skull.scene.scale.set(0.5, 0.5, 0.5);
-        skull.scene.position.set(-4, -2, -2);
-
-        // Importa el modelo 3d del cactus
-        const cactus = useGLTF("models/cactus.glb");
-        cactus.scene.scale.set(3, 3, 3);
-        cactus.scene.rotateY(Math.PI*0.25);
-        cactus.scene.position.set(3, -2, 2);
 
         // Define los componentes para la escena
         return <>
@@ -42,24 +32,16 @@ const Desert = () =>
             <ambientLight intensity={0.5} color={[1, 0.969, 0.62]}/>
             <directionalLight
                 position={[10, 5, 6]}
-                color={[0.7,0.7,0.5]}
-                intensity={10}
-                shadow-mapSize={[1024, 1024]}
-                shadow-camera-far={10}
-                shadow-camera-left={-3}
-                shadow-camera-right={5}
-                shadow-camera-top={1}
-                shadow-camera-bottom={-1}
-                shadow-bias={-0.01} 
+                color={[0.9804, 0.8980, 0.4392]}
+                intensity={2}
+                shadow-mapSize-width={1024}
+                shadow-mapSize-height={1024}
                 castShadow
             />
         {/* Renderiza los objetos del craneo y el cactus */}
-            <mesh castShadow receiveShadow>
-                <primitive object={skull.scene}/>
-            </mesh>
-            <mesh castShadow receiveShadow>
-                <primitive object={cactus.scene}/>
-            </mesh>
+            <BizonSkull position={[-4, -2, -3]}/>
+            <Can position={[4, -2, -3]}/>
+            <Cactus position={[3, -2, 2]} />
 
         {/* Renderiza el piso con materiales PBR */}
             <mesh position={[0, -2, 0]} castShadow receiveShadow>
@@ -70,6 +52,3 @@ const Desert = () =>
         </>;
     };
 export default Desert
-
-useGLTF.preload("models/cactus.glb");
-useGLTF.preload("models/bison-skull.glb");
