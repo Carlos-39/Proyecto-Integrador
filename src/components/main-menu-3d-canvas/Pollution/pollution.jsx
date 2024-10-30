@@ -54,9 +54,9 @@ const Pollution = (props) => {
                 intensity={1.2} 
                 color={[1, 0.8, 0.5]}
                 castShadow
-                shadow-mapSize-width={1024}  // Ajustar resolución de sombra para mayor calidad
+                shadow-mapSize-width={1024}
                 shadow-mapSize-height={1024}
-                shadow-camera-far={10}       // Ajustar rango de sombra
+                shadow-camera-far={10}
                 shadow-camera-left={-5}
                 shadow-camera-right={5}
                 shadow-camera-top={5}
