@@ -14,9 +14,11 @@ import escacezAguaImage from "../../assets/images/escacez_agua.jpg";
 import acidificacionImage from "../../assets/images/acidificacion.jpg";
 import Escene from "../../components/main-menu-3d-canvas/Escene.jsx"
 import Scarcity from "../../components/main-menu-3d-canvas/Scarcity/scarcity.jsx"
+import Acidification from "../../components/main-menu-3d-canvas/Acidification/acidification.jsx"
 import bgScarcity from "../../assets/images/skybox-scarcity.jpg"
 import Pollution from "../../components/main-menu-3d-canvas/Pollution/pollution.jsx"
 import bgPollution from "../../assets/images/pngtree-sea.jpg"
+import bgAcidification from "../../assets/images/ocean_acidification.jpg"
 
 const menuItems = [
   {
@@ -38,7 +40,7 @@ const menuItems = [
     title: "Acidificación de los Océanos",
     description: "Entiende el impacto de la acidificación en la vida marina.",
     icon: <FaRecycle />,
-    image: <Escene x={1} y={1} z={1}/>,
+    image: <Escene escenario={<Acidification/>} x={2} y={1} z={9} bgImage={bgAcidification}/>,
     link: "/ocean-acidification",
   },
 ];
