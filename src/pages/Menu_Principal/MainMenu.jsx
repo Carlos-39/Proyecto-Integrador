@@ -15,6 +15,8 @@ import acidificacionImage from "../../assets/images/acidificacion.jpg";
 import Escene from "../../components/main-menu-3d-canvas/Escene.jsx"
 import Scarcity from "../../components/main-menu-3d-canvas/Scarcity/scarcity.jsx"
 import bgScarcity from "../../assets/images/skybox-scarcity.jpg"
+import Pollution from "../../components/main-menu-3d-canvas/Pollution/pollution.jsx"
+import bgPollution from "../../assets/images/pngtree-sea.jpg"
 
 const menuItems = [
   {
@@ -22,7 +24,7 @@ const menuItems = [
     description:
       "Explora los efectos de la contaminación en nuestros recursos hídricos.",
     icon: <FaWater />,
-    image: <Escene x={1} y={1} z={1}/>,
+    image: <Escene escenario={<Pollution />} bgImage={bgPollution} x={1} y={1} z={1}/>,
     link: "/pollution",
   },
   {
