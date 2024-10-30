@@ -16,20 +16,22 @@ import Escene from "../../components/main-menu-3d-canvas/Escene.jsx"
 import Scarcity from "../../components/main-menu-3d-canvas/Scarcity/scarcity.jsx"
 import Acidification from "../../components/main-menu-3d-canvas/Acidification/acidification.jsx"
 import bgScarcity from "../../assets/images/skybox-scarcity.jpg"
+import Pollution from "../../components/main-menu-3d-canvas/Pollution/pollution.jsx"
+import bgPollution from "../../assets/images/pngtree-sea.jpg"
 import bgAcidification from "../../assets/images/ocean_acidification.jpg"
 
 const menuItems = [
   {
     title: "Contaminación del Agua",
     description:
-      "Explora los efectos de la contaminación en nuestros recursos hídricos.",
+      "Descubre cómo la contaminación afecta nuestros recursos hídricos, amenazando la biodiversidad y la salud humana, y qué podemos hacer para enfrentarlo.",
     icon: <FaWater />,
-    image: <Escene x={1} y={1} z={1}/>,
+    image: <Escene escenario={<Pollution />} bgImage={bgPollution} x={1} y={1} z={1}/>,
     link: "/pollution",
   },
   {
     title: "Escasez de Agua",
-    description: "Descubre las causas y soluciones para la escasez de agua.",
+    description: "El agua se está agotando rápidamente en todo el mundo. Descubre sus causas y soluciones aquí.",
     icon: <FaExclamationTriangle />,
     image: <Escene escenario={<Scarcity/>} x={2} y={1} z={6} bgImage={bgScarcity}/>,
     link: "/scarcity",
