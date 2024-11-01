@@ -9,9 +9,6 @@ import {
   FaTrophy,
 } from "react-icons/fa";
 import projectLogo from "../../assets/images/logo.png";
-import contaminacionImage from "../../assets/images/contaminacion.jpg";
-import escacezAguaImage from "../../assets/images/escacez_agua.jpg";
-import acidificacionImage from "../../assets/images/acidificacion.jpg";
 import Escene from "../../components/main-menu-3d-canvas/Escene.jsx"
 import Scarcity from "../../components/main-menu-3d-canvas/Scarcity/scarcity.jsx"
 import Acidification from "../../components/main-menu-3d-canvas/Acidification/acidification.jsx"
@@ -97,7 +94,7 @@ const MainMenu = () => {
 
       <div className="card-container">
         {menuItems.map((item, index) => (
-          <div className="card" key={index}>
+          <div className="card" key={item.title}>
             <a href={item.link}>
               {item.image}
               <div className="card-content">
