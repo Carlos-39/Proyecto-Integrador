@@ -2,16 +2,11 @@ import './Inicio.css'
 
 import projectLogo from '../../assets/images/logo.png'
 import tutorialLogo from '../../assets/images/logoTutorial.png'
-import { useNavigate, Link } from 'react-router-dom' // import react-router-dom hook
+import { useNavigate} from 'react-router-dom' // import react-router-dom hook
 
 const Inicio = () => {
 	// hook useNavigate created
 	const navigate = useNavigate()
-
-	// scroll interactivo
-	const scrollToSection = () => {
-		document.getElementById('target-scroll').scrollIntoView({ behavior: 'smooth' });
-	};
 
 	// Función para ir a la vista de tutorial
 	const goToTutorial = () => {
@@ -102,9 +97,7 @@ const Inicio = () => {
 							<li>Podrás guardar tu progreso y ganar trofeos a medida que completas los quizzes interactivos.</li>
 						</ul>
 					</div>
-					<button className='body-section--login' onClick={goToLogin}>
-						<p>Únete y se parte del cambio <span><img src={projectLogo} alt="Logo-photo" /></span></p>
-					</button>
+					<button className='btn-primary' onClick={goToLogin}>Únete y se parte del cambio</button>
 				</div>
 			</section>
 		</div>
