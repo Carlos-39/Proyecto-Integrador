@@ -1,4 +1,4 @@
-import { OrbitControls, useTexture, useGLTF  } from "@react-three/drei"; //library for the controllers
+import { OrbitControls, useTexture } from "@react-three/drei"; //library for the controllers
 import { useMemo } from "react";
 import { Cactus, BizonSkull, Can } from "../Scarcity/scarcity-models.jsx"
 
