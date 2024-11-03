@@ -2,16 +2,11 @@ import './Inicio.css'
 
 import projectLogo from '../../assets/images/logo.png'
 import tutorialLogo from '../../assets/images/logoTutorial.png'
-import { useNavigate } from 'react-router-dom' // import react-router-dom hook
+import { useNavigate} from 'react-router-dom' // import react-router-dom hook
 
 const Inicio = () => {
 	// hook useNavigate created
 	const navigate = useNavigate()
-
-	// scroll interactivo
-	const scrollToSection = () => {
-		document.getElementById('target-scroll').scrollIntoView({ behavior: 'smooth' });
-	};
 
 	// Función para ir a la vista de tutorial
 	const goToTutorial = () => {
@@ -27,16 +22,24 @@ const Inicio = () => {
 	return (
 		<div className='background'>
 			<header className='header-container'>
-				<div className='login-button' onClick={goToLogin}>
+				<button 
+					className='btn-primary'
+					onClick={goToLogin}
+					style={{position: "absolute",
+							top: "20px",
+							right: "20px"}}
+				>
 					<p>Acceder</p>
-				</div>
+				</button>
 				<div className='container-title'>
 					<img src={projectLogo} alt="project logo" />
 					<h1>BlueSphere Studios</h1>
 				</div>
+				<a href="#target-scroll">
 				<div className='moreInfo-container'>
-					<p onClick={scrollToSection}>Conoce...</p>
+					<p>Conoce...</p>
 				</div>
+				</a>
 			</header>
 
 			<section id='target-scroll' className='main-section-container'>
@@ -45,10 +48,10 @@ const Inicio = () => {
 						<h3>Bienvenido a BlueSphere Studios</h3>
 						<p>Explora los desafíos más críticos que enfrenta el planeta en relación con el agua. Nuestro objetivo es educar de manera interactiva y divertida para que puedas entender mejor estos problemas ambientales y cómo puedes ayudar a solucionarlos.</p>
 					</div>
-					<div className='first-container--tutorial' onClick={goToTutorial}>
+					<button className='first-container--tutorial' onClick={goToTutorial}>
 						<img src={tutorialLogo} alt="tutorial logo" />
 						<p>Tutorial</p>
-					</div>
+					</button>
 				</div>
 				<div className='section-container-cards'>
 					<article className='section-detail--card'>
@@ -94,9 +97,7 @@ const Inicio = () => {
 							<li>Podrás guardar tu progreso y ganar trofeos a medida que completas los quizzes interactivos.</li>
 						</ul>
 					</div>
-					<div className='body-section--login' onClick={goToLogin}>
-						<p>Únete y se parte del cambio <span><img src={projectLogo} alt="Logo-photo" /></span></p>
-					</div>
+					<button className='btn-primary' onClick={goToLogin}>Únete y se parte del cambio</button>
 				</div>
 			</section>
 		</div>
