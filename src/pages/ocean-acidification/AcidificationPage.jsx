@@ -73,8 +73,6 @@ const AcidificationPage = () => {
               className="section-image"
             />
             <button className="button learn-more-btn" onClick={handleLearnMoreClick}>
-            <button className="button learn-more-btn">
-
               Aprender más
             </button>
           </div>
