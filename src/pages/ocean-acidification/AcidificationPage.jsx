@@ -1,5 +1,6 @@
 import React from "react";
 import { FaTrophy } from "react-icons/fa";
+import { useNavigate } from "react-router-dom"; // Importa useNavigate
 import useAuthStore from "../../stores/use-auth-store";
 import "./AcidificationPage.css";
 import projectLogo from "../../assets/images/logo.png";
@@ -8,6 +9,7 @@ import quiz from "../../assets/images/Quiz_Acidificacion.jpg";
 
 const AcidificationPage = () => {
   const { user, observeAuthState } = useAuthStore();
+  const navigate = useNavigate(); // Hook para navegar entre rutas
   
   React.useEffect(() => {
     observeAuthState();
@@ -22,6 +24,10 @@ const AcidificationPage = () => {
   };
 
   const username = user ? capitalizeWords(user.displayName) : "Invitado";
+
+  const handleLearnMoreClick = () => {
+    navigate("/AcidificationInfoPage"); // Navega a la página de información cuando se hace clic
+  };
 
   return (
     <div className="acidification-page">
@@ -66,7 +72,9 @@ const AcidificationPage = () => {
               alt="Diagrama de acidificación"
               className="section-image"
             />
+            <button className="button learn-more-btn" onClick={handleLearnMoreClick}>
             <button className="button learn-more-btn">
+
               Aprender más
             </button>
           </div>
