@@ -1,4 +1,3 @@
-// AcidificationPage.js
 import React from "react";
 import { FaTrophy } from "react-icons/fa";
 import { useNavigate } from "react-router-dom"; // Importa useNavigate
@@ -74,6 +73,8 @@ const AcidificationPage = () => {
               className="section-image"
             />
             <button className="button learn-more-btn" onClick={handleLearnMoreClick}>
+            <button className="button learn-more-btn">
+
               Aprender más
             </button>
           </div>

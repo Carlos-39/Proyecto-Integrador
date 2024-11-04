@@ -2,7 +2,6 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './main.css';
-
 import Inicio from './pages/Inicio/Inicio';
 import Login from './pages/Login/Login';
 import MainMenu from './pages/Menu_Principal/MainMenu';
@@ -34,6 +33,7 @@ const router = createBrowserRouter([
   {
     path: '/AcidificationInfoPage',
     element: <AcidificationInfoPage />
+
   }
 ]);
 
