@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { FaTrophy } from "react-icons/fa";
 import useAuthStore from "../../stores/use-auth-store";
 import "./AcidificationInfoPage.css";
@@ -9,6 +10,12 @@ import Carousel from "../../components/Carousel"; // Importa el nuevo componente
 
 const AcidificationInfoPage = () => {
   const { user, observeAuthState } = useAuthStore();
+
+  const navigate = useNavigate();
+
+  const backToMainMenu = () => {
+    navigate("/AcidificationPage"); // Navega a la página de información cuando se hace clic
+  };
 
   React.useEffect(() => {
     observeAuthState();
@@ -35,50 +42,53 @@ const AcidificationInfoPage = () => {
     <div className="acidification-info-page">
       <header className="header">
         <div className="logo-container">
-          <img src={projectLogo} alt="BlueSphere Studios Logo" className="logo" />
-          <h1 className="title">BlueSphere Studios</h1>
+          <img src={projectLogo} alt="BlueSphere Studios Logo" className="logo"/>
+          <div className="company-info">
+            <h1>BlueSphere Studios</h1>
+            <p>Explora los Problemas Ambientales del Agua</p>
+          </div>
         </div>
         <div className="user-info">
-          <span className="username">Hola, {username}</span>
-          <div className="trophy-container">
+          <span className="username">{username}</span>
+          <div className="trophy-container" title="Ver Trofeos">
             <FaTrophy className="trophy-icon" />
-            <span>Trofeos</span>
+            <span className="trophy-text">Trofeos</span>
           </div>
         </div>
       </header>
 
       <main className="main-content">
-        <h2 className="page-title">Acidificación de los océanos</h2>
+        <h2 className="page-title">Acidificación de los Océanos</h2>
 
-        <div className="description-box">
-          <h3 className="description-title">Problemática</h3>
+        <section className="description-box">
+          <h3>Problemática</h3>
           <p className="description-text">
             La acidificación de los océanos es el proceso por el cual el agua del mar se vuelve más ácida debido al dióxido de carbono (CO₂) absorbido de la atmósfera. Este fenómeno ha aumentado en un 30% desde la Revolución Industrial, alterando la química del agua. A medida que el nivel de CO₂ aumenta, el pH del agua disminuye, afectando gravemente a los ecosistemas marinos. Esto no solo amenaza la vida marina, sino que también impacta la economía de las comunidades costeras que dependen de la pesca y el turismo.
           </p>
-        </div>
+        </section>
 
-        <div className="sections-container">
+        <section className="sections-container">
           <div className="section-card">
-            <h3 className="section-title">Consecuencias de la acidificación</h3>
-            <Carousel items={consequences} /> {/* Usa el carrusel aquí */}
+            <h3>Consecuencias de la acidificación</h3>
+            <Carousel items={consequences} />
             <img src={oceanProblem} alt="Consecuencias de la acidificación" className="section-image" />
-            <button className="button learn-more-btn">Ver más...</button>
+            <button className="button learn-more-btn">Conoce más...</button>
           </div>
 
           <div className="section-card">
-            <h3 className="section-title">Soluciones</h3>
-            <p className="section-text">
+            <h3>Soluciones</h3>
+            <p className="section-text text2">
               Para combatir la acidificación de los océanos, es esencial reducir las emisiones de CO₂ a nivel global. Esto incluye promover el uso de energías renovables, mejorar la eficiencia energética y fomentar la conservación de los ecosistemas naturales que absorben carbono, como los bosques y humedales. Además, la creación de áreas marinas protegidas puede ayudar a restaurar los ecosistemas marinos y aumentar la resiliencia de las especies frente a cambios ambientales. La educación y la concienciación pública también juegan un papel crucial en el impulso de acciones comunitarias y políticas efectivas.
             </p>
             <img src={oceanSolution} alt="Soluciones para la acidificación" className="section-image" />
-            <button className="button learn-more-btn">Ver más...</button>
+            <button className="button learn-more-btn">Conoce más...</button>
           </div>
-        </div>
+        </section>
 
-        <div className="button-group">
-          <button className="main-button">Volver al menú principal</button>
-          <button className="quiz-button">Quiero probarme</button>
-        </div>
+        <section className="button-group">
+          <button className="btn main-button" onClick={backToMainMenu}>Volver al menú principal</button>
+          <button className="btn quiz-button">Quiero probarme</button>
+        </section>
       </main>
     </div>
   );
