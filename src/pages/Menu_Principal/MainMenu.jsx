@@ -64,16 +64,10 @@ const MainMenu = () => {
     <div className="main-menu">
       <header className="header">
         <div className="logo-container">
-          <img
-            src={projectLogo}
-            alt="BlueSphere Studios Logo"
-            className="logo"
-          />
+          <img src={projectLogo} alt="BlueSphere Studios Logo" className="logo"/>
           <div className="company-info">
-            <h1 className="title">BlueSphere Studios</h1>
-            <p className="subtitle">
-              Explora los Problemas Ambientales del Agua
-            </p>
+            <h1>BlueSphere Studios</h1>
+            <p>Explora los Problemas Ambientales del Agua</p>
           </div>
         </div>
         <div className="user-info">
@@ -84,15 +78,14 @@ const MainMenu = () => {
           </div>
         </div>
       </header>
-      <div className="text-container">
-        <div className="transparent-box">
-          <p className="main-text">
-          Aprendiendo a proteger el agua del planeta, un proyecto a la vez, utilizando lo último en tecnología interactiva.
-          </p>
-        </div>
-      </div>
 
-      <div className="card-container">
+      <section className="text-container">
+        <div className="transparent-box">
+          <p className="main-text">Aprendiendo a proteger el agua del planeta, un proyecto a la vez, utilizando lo último en tecnología interactiva.</p>
+        </div>
+      </section>
+
+      <section className="main-menu-card-container">
         {menuItems.map((item, index) => (
           <div className="card" key={item.title}>
             <a href={item.link}>
@@ -106,7 +99,8 @@ const MainMenu = () => {
             </a>
           </div>
         ))}
-      </div>
+      </section>
+
       <footer className="footer">
         <p>&copy; 2024 BlueSphere Studios. Todos los derechos reservados.</p>
       </footer>

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"; // Importa useNavigate
 import useAuthStore from "../../stores/use-auth-store";
 import "./AcidificationPage.css";
 import projectLogo from "../../assets/images/logo.png";
-import acerca from "../../assets/images/Acerca_del_tema_acidificacion.png";
+import acercaImg from "../../assets/images/Acerca_del_tema_acidificacion.png";
 import quiz from "../../assets/images/Quiz_Acidificacion.jpg";
 
 const AcidificationPage = () => {
@@ -33,20 +33,17 @@ const AcidificationPage = () => {
     <div className="acidification-page">
       <header className="header">
         <div className="logo-container">
-          <img
-            src={projectLogo}
-            alt="BlueSphere Studios Logo"
-            className="logo"
-          />
+          <img src={projectLogo} alt="BlueSphere Studios Logo" className="logo"/>
           <div className="company-info">
-            <h1 className="title">BlueSphere Studios</h1>
+            <h1>BlueSphere Studios</h1>
+            <p>Explora los Problemas Ambientales del Agua</p>
           </div>
         </div>
         <div className="user-info">
-          <span className="username">Hola, {username}</span>
-          <div className="trophy-container">
+          <span className="username">{username}</span>
+          <div className="trophy-container" title="Ver Trofeos">
             <FaTrophy className="trophy-icon" />
-            <span>Trofeos</span>
+            <span className="trophy-text">Trofeos</span>
           </div>
         </div>
       </header>
@@ -66,9 +63,9 @@ const AcidificationPage = () => {
 
         <div className="sections-container">
           <div className="section-card">
-            <h3 className="section-title">Acerca del tema</h3>
+            <h3>Acerca del tema</h3>
             <img 
-              src={acerca}
+              src={acercaImg}
               alt="Diagrama de acidificación"
               className="section-image"
             />
