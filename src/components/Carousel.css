@@ -2,10 +2,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 2rem 0;
-    padding: 1rem;
+    margin: 20px 0;
+    padding: 10px;
     background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 12px;
+    border-radius: 8px;
   }
   
   .carousel-item {

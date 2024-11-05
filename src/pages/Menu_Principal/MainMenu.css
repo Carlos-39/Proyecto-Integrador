@@ -1,104 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+@import url('../../main.css');
 
 .main-menu {
   background-image: url('../../assets/images/oceano.jpeg');
-  background-size: cover;
-  min-height: 100vh;
-  color: black;
-  display: flex;
-  flex-direction: column;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1px 10px; 
-  background-color: rgba(255, 255, 255, 0.2); 
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  width: auto; 
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  width: 120px;
-  height: auto;
-}
-
-.company-info {
-  margin-left: 15px;
-}
-
-.title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  font-style: italic;
-}
-
-.subtitle {
-  font-size: 1.2rem;
-}
-
-.user-info {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-}
-
-.username {
-  margin-right: 10px;
-  font-size: 1.2rem;
-  color: black;
-}
-
+/* section después del header */
 .text-container {
   display: flex;
   justify-content: center;
-  margin: 40px 0;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
 }
 
 .transparent-box {
-  background-color: rgba(255, 255, 255, 0.5); 
-  padding: 8px; 
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  background-color: rgba(255, 255, 255, 0.8); 
+  backdrop-filter: blur(12px);
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); 
 }
 
-.main-text {
+.transparent-box p {
   font-size: 2rem; 
-  text-align: left;
-  color: black;
-  font-family: 'Poppins', sans-serif; 
-  font-weight: 700; 
-  font-style: italic; 
-  margin-bottom: 15px; 
+  color: #000;
+  font-weight: 600; 
+  /* font-style: italic;  */
+  padding: 10px 6px;
 }
 
-.card-container {
+/* estilos de las cards del menu */
+.main-menu-card-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 0px 50px;
   margin-top: 20px;
 }
 
 .card {
   width: 300px; 
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  /* backdrop-filter: blur(12px); */
+  border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: background-color 0.3s ease, transform 0.3s ease;
   display: flex;
   flex-direction: column;
   text-align: center;
   color: black;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9); 
 }
 
 .card:hover {
@@ -112,7 +64,9 @@
 }
 
 .card-title {
-  font-size: 1.8rem; 
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #000; 
   margin: 15px 0;
   display: flex;
   align-items: center;
@@ -124,9 +78,9 @@
 .card-description {
   font-size: 1.4rem; 
   padding: 0 15px 15px; 
-  color: #333;
+  color: #000;
   text-decoration: none; 
-  font-family: 'Helvetica Neue', sans-serif; 
+  /* font-family: 'Helvetica Neue', sans-serif;  */
 }
 
 
@@ -135,23 +89,7 @@
   text-align: center;
   padding: 10px 0;
   color: white;
-  font-family: 'Poppins', sans-serif; 
+  /* font-family: 'Poppins', sans-serif;  */
   font-size: 1rem; 
   font-weight: 600; 
-}
-
-.trophy-container {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.trophy-icon {
-  font-size: 1.5rem;
-  color: gold;
-}
-
-.trophy-text {
-  margin-left: 5px;
-  font-size: 1.2rem;
 }
