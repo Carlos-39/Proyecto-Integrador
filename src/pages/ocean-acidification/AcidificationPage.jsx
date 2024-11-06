@@ -1,15 +1,22 @@
 import React from "react";
 import { FaTrophy } from "react-icons/fa";
-import { useNavigate } from "react-router-dom"; // Importa useNavigate
+import { useNavigate } from "react-router-dom";
 import useAuthStore from "../../stores/use-auth-store";
 import "./AcidificationPage.css";
 import projectLogo from "../../assets/images/logo.png";
 import acercaImg from "../../assets/images/Acerca_del_tema_acidificacion.png";
 import quiz from "../../assets/images/Quiz_Acidificacion.jpg";
 
+// Importing the Canvas and Acido components
+import { Canvas } from '@react-three/fiber';
+import Acido from "../../components/main-menu-3d-canvas/Acidification/acidification.jsx";
+
+// Import the coral image
+import coralImage from "../../assets/images/ocean_background.jpg"; 
+
 const AcidificationPage = () => {
   const { user, observeAuthState } = useAuthStore();
-  const navigate = useNavigate(); // Hook para navegar entre rutas
+  const navigate = useNavigate();
   
   React.useEffect(() => {
     observeAuthState();
@@ -26,11 +33,26 @@ const AcidificationPage = () => {
   const username = user ? capitalizeWords(user.displayName) : "Invitado";
 
   const handleLearnMoreClick = () => {
-    navigate("/AcidificationInfoPage"); // Navega a la página de información cuando se hace clic
+    navigate("/AcidificationInfoPage");
   };
 
   return (
     <div className="acidification-page">
+      <Canvas 
+        style={{
+          zIndex: "-1", 
+          position: "absolute", 
+          top: "0", 
+          left: "0", 
+          width: "100%", 
+          height: "100vh", 
+          background: `url(${coralImage}) no-repeat center center fixed`, 
+          backgroundSize: "cover",
+        }}
+      >
+        <Acido position={[0, -1, 0]} />
+      </Canvas>
+
       <header className="header">
         <div className="logo-container">
           <img src={projectLogo} alt="BlueSphere Studios Logo" className="logo"/>
