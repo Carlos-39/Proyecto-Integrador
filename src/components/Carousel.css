@@ -1,0 +1,29 @@
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+  }
+  
+  .carousel-item {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .carousel-button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .carousel-button:hover {
+    background-color: #1d4ed8;
+  }
+  
