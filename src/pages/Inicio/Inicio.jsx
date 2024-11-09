@@ -3,31 +3,44 @@ import './Inicio.css'
 import projectLogo from '../../assets/images/logo.png'
 import tutorialLogo from '../../assets/images/logoTutorial.png'
 import { useNavigate } from 'react-router-dom'
+import ParticlesBackground from './Particulas';
+import { useState } from 'react'
 
 const Inicio = () => {
 	// hook useNavigate created
 	const navigate = useNavigate()
 
+	const [animate, setAnimate] = useState(false)
+
+	const goToPage = (path) => {
+		setAnimate(true)
+		setTimeout(() => {
+			navigate(path)
+		}, 500)
+	}
+
 	// scroll interactivo
-	const scrollToSection = () => {
-		document.getElementById('target-scroll').scrollIntoView({ behavior: 'smooth' });
-	};
+		// const scrollToSection = () => {
+		// 	document.getElementById('target-scroll').scrollIntoView({ behavior: 'smooth' });
+		// };
 
 	// Función para ir a la vista de tutorial
-	const goToTutorial = () => {
-		navigate('/Tutorial');
-	};
+		// const goToTutorial = () => {
+		// 	navigate('/Tutorial');
+		// };
 
 	// Función para ir a la vista de tutorial
-	const goToLogin = () => {
-		navigate('/Login');
-	};
+		// const goToLogin = () => {
+		// 	navigate('/Login');
+		// };
 
 
 	return (
 		<div className='background'>
+			<ParticlesBackground />
+
 			<header className='header-container'>
-				<div className='login-button' onClick={goToLogin}>
+				<div className={`login-button ${animate ? 'animate' : ''}`} onClick={() => goToPage('/Login')}>
 					<p>Acceder</p>
 				</div>
 				<div className='container-title'>
@@ -35,7 +48,7 @@ const Inicio = () => {
 					<h1>BlueSphere Studios</h1>
 				</div>
 				<div className='moreInfo-container'>
-					<p onClick={scrollToSection}>Conoce...</p>
+					<p onClick={() => document.getElementById('target-scroll').scrollIntoView({ behavior: 'smooth' })}>Conoce...</p>
 				</div>
 			</header>
 
@@ -45,7 +58,7 @@ const Inicio = () => {
 						<h3>Bienvenido a BlueSphere Studios</h3>
 						<p>Explora los desafíos más críticos que enfrenta el planeta en relación con el agua. Nuestro objetivo es educar de manera interactiva y divertida para que puedas entender mejor estos problemas ambientales y cómo puedes ayudar a solucionarlos.</p>
 					</div>
-					<div className='first-container--tutorial' onClick={goToTutorial}>
+					<div className={`first-container--tutorial ${animate ? 'animate' : ''}`} onClick={() => goToPage('/Tutorial')}>
 						<img src={tutorialLogo} alt="tutorial logo" />
 						<p>Tutorial</p>
 					</div>
@@ -94,7 +107,7 @@ const Inicio = () => {
 							<li>Podrás guardar tu progreso y ganar trofeos a medida que completas los quizzes interactivos.</li>
 						</ul>
 					</div>
-					<div className='body-section--login' onClick={goToLogin}>
+					<div className={`body-section--login ${animate ? 'animate' : ''}`} onClick={() => goToPage('/Login')}>
 						<p>Únete y se parte del cambio <span><img src={projectLogo} alt="Logo-photo" /></span></p>
 					</div>
 				</div>
