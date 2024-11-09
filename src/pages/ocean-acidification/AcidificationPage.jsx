@@ -6,6 +6,7 @@ import "./AcidificationPage.css";
 import projectLogo from "../../assets/images/logo.png";
 import acercaImg from "../../assets/images/Acerca_del_tema_acidificacion.png";
 import quiz from "../../assets/images/Quiz_Acidificacion.jpg";
+import Header from '../../components/Header/Header.jsx'
 
 // Importing the Canvas and Acido components
 import { Canvas } from '@react-three/fiber';
@@ -53,22 +54,7 @@ const AcidificationPage = () => {
         <Acido position={[0, -1, 0]} />
       </Canvas>
 
-      <header className="header">
-        <div className="logo-container">
-          <img src={projectLogo} alt="BlueSphere Studios Logo" className="logo"/>
-          <div className="company-info">
-            <h1>BlueSphere Studios</h1>
-            <p>Explora los Problemas Ambientales del Agua</p>
-          </div>
-        </div>
-        <div className="user-info">
-          <span className="username">{username}</span>
-          <div className="trophy-container" title="Ver Trofeos">
-            <FaTrophy className="trophy-icon" />
-            <span className="trophy-text">Trofeos</span>
-          </div>
-        </div>
-      </header>
+      <Header username={username} />
 
       <main className="main-content">
         <h2 className="page-title">Acidificación de los Océanos</h2>

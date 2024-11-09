@@ -16,6 +16,7 @@ import bgScarcity from "../../assets/images/skybox-scarcity.jpg"
 import Pollution from "../../components/main-menu-3d-canvas/Pollution/pollution.jsx"
 import bgPollution from "../../assets/images/pngtree-sea.jpg"
 import bgAcidification from "../../assets/images/ocean_acidification.jpg"
+import Header from '../../components/Header/Header.jsx'
 
 const menuItems = [
   {
@@ -62,22 +63,7 @@ const MainMenu = () => {
 
   return (
     <div className="main-menu">
-      <header className="header">
-        <div className="logo-container">
-          <img src={projectLogo} alt="BlueSphere Studios Logo" className="logo"/>
-          <div className="company-info">
-            <h1>BlueSphere Studios</h1>
-            <p>Explora los Problemas Ambientales del Agua</p>
-          </div>
-        </div>
-        <div className="user-info">
-          <span className="username">{username}</span>
-          <div className="trophy-container" title="Ver Trofeos">
-            <FaTrophy className="trophy-icon" />
-            <span className="trophy-text">Trofeos</span>
-          </div>
-        </div>
-      </header>
+      <Header username={username} />
 
       <section className="text-container">
         <div className="transparent-box">

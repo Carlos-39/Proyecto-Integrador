@@ -1,6 +1,20 @@
 .background {
 	background: -webkit-linear-gradient(90deg, rgba(0,0,0,1),rgba(0,51,102,1),rgba(51,153,255,1));
 	background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,51,102,1) 0%, rgba(51,153,255,1) 100%);
+	position: relative;
+	overflow: hidden;
+}
+
+.header-container {
+	z-index: 1;
+	position: relative;
+}
+
+.main-section-container, 
+.info-section-container {
+	z-index: 1;
+	position: relative;
+	transition: transform 0.5s ease;
 }
 
 /* Botón de acceder en la parte superior derecha */
@@ -182,6 +196,11 @@
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.16);
 }
 
+.section-detail--card:hover {
+	transform: scale(1.05);
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+}
+
 .section-detail--card .icon1{
 	display: inline-block;
 	width: 30px;
@@ -191,6 +210,11 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
+}
+
+.section-detail--card .icon1:hover {
+	transform: rotate(360deg);
+	transition: transform 1s ease;
 }
 
 .section-detail--card .icon2{
@@ -204,6 +228,11 @@
 	background-position: center;
 }
 
+.section-detail--card .icon2:hover {
+	transform: rotate(360deg);
+	transition: transform 1s ease;
+}
+
 .section-detail--card .icon3{
 	display: inline-block;
 	width: 30px;
@@ -215,6 +244,11 @@
 	background-position: center;
 }
 
+.section-detail--card .icon3:hover {
+	transform: rotate(360deg);
+	transition: transform 1s ease;
+}
+
 .section-detail--card .icon4{
 	display: inline-block;
 	width: 24px;
@@ -224,6 +258,11 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
+}
+
+.section-detail--card .icon4:hover {
+	transform: rotate(360deg);
+	transition: transform 1s ease;
 }
 
 .section-detail--card .detail-card--title{
@@ -414,4 +453,19 @@
 	height: 30px;
 	vertical-align: middle;
 	margin-left: 5px;
+}
+
+.animate {
+	animation: growAndCenter 0.5s ease forwards;
+}
+
+@keyframes growAndCenter {
+	0% {
+		transform: scale(1) translate(0, 0);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1.4);
+		opacity: 0.8;
+	}
 }
