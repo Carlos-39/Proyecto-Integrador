@@ -1,0 +1,77 @@
+/* estilos base del header */
+.header {
+	display: flex;
+  	justify-content: space-between;
+  	align-items: center;
+  	height: auto;
+  	width: 100%;
+  	padding: 8px; 
+  	background-color: rgba(255, 255, 255, 0.8); 
+  	backdrop-filter: blur(12px);
+  	width: auto; 
+}
+
+.logo-container {
+	display: flex;
+	align-items: center;
+}
+  
+.logo {
+	width: 60px;
+	height: 60px;
+}
+
+.company-info{
+	margin-left: 15px;
+}
+  
+.company-info h1 {
+	font-size: 2.5rem;
+	font-weight: bold;
+}
+  
+.company-info p{
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: #000;
+}
+
+.username{
+	margin-right: 20px;
+  	font-size: 1.4rem;
+  	font-weight: 600;
+  	color: #000;
+}
+  
+.user-info {
+	display: flex;
+	align-items: center;
+}
+  
+.trophy-container {
+	display: flex;
+  	align-items: center;
+  	cursor: pointer;
+  	margin-right: 12px;
+  	padding: 8px;
+  	transition: background-color 0.3s ease, transform 0.3s ease;
+  	border-radius: 8px;
+}
+  
+.trophy-container:hover {
+	background: rgba(255, 255, 255, 0.8);
+  	transform: scale(1.05);
+  	color: #000;
+  	border: 2px solid rgb(255, 217, 0);
+}
+  
+.trophy-icon {
+	font-size: 2.4rem;
+	color: rgb(255, 217, 0);
+	margin-right: 8px;
+}
+
+.trophy-text{
+	font-size: 1.4rem;
+  	font-weight: bold;
+}

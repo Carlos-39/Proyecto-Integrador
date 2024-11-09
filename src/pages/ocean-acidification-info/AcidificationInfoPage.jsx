@@ -6,7 +6,8 @@ import "./AcidificationInfoPage.css";
 import projectLogo from "../../assets/images/logo.png";
 import oceanProblem from "../../assets/images/ocean_problem.jpg";
 import oceanSolution from "../../assets/images/ocean_solution.jpg";
-import Carousel from "../../components/Carousel"; // Importa el nuevo componente
+import Carousel from "../../components/Carousel";
+import Header from '../../components/Header/Header.jsx'
 
 const AcidificationInfoPage = () => {
   const { user, observeAuthState } = useAuthStore();
@@ -40,22 +41,7 @@ const AcidificationInfoPage = () => {
 
   return (
     <div className="acidification-info-page">
-      <header className="header">
-        <div className="logo-container">
-          <img src={projectLogo} alt="BlueSphere Studios Logo" className="logo"/>
-          <div className="company-info">
-            <h1>BlueSphere Studios</h1>
-            <p>Explora los Problemas Ambientales del Agua</p>
-          </div>
-        </div>
-        <div className="user-info">
-          <span className="username">{username}</span>
-          <div className="trophy-container" title="Ver Trofeos">
-            <FaTrophy className="trophy-icon" />
-            <span className="trophy-text">Trofeos</span>
-          </div>
-        </div>
-      </header>
+      <Header username={username} />
 
       <main className="main-content">
         <h2 className="page-title">Acidificación de los Océanos</h2>
