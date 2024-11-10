@@ -14,7 +14,7 @@ import Scarcity from "../../components/main-menu-3d-canvas/Scarcity/scarcity.jsx
 import Acidification from "../../components/main-menu-3d-canvas/Acidification/acidification.jsx"
 import bgScarcity from "../../assets/images/skybox-scarcity.jpg"
 import Pollution from "../../components/main-menu-3d-canvas/Pollution/pollution.jsx"
-import bgPollution from "../../assets/images/pngtree-sea.jpg"
+import bgPollution from "../../assets/images/pollutionIMG.jpg"
 import bgAcidification from "../../assets/images/ocean_acidification.jpg"
 import Header from '../../components/Header/Header.jsx'
 
@@ -24,7 +24,7 @@ const menuItems = [
     description:
       "Descubre cómo la contaminación afecta nuestros recursos hídricos, amenazando la biodiversidad y la salud humana, y qué podemos hacer para enfrentarlo.",
     icon: <FaWater />,
-    image: <Escene escenario={<Pollution />} bgImage={bgPollution} x={1} y={1} z={1}/>,
+    image: <Escene escenario={<Pollution />} x={2} y={1} z={6} bgImage={bgPollution} />,
     link: "/pollution",
   },
   {
