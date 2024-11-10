@@ -3,24 +3,29 @@ import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 
 const Pollution = (props) => {
+    const toxicWaste = useGLTF("models/Pollution/uploads_files_4314177_Crate_2x.glb")
+    const { nodes, materials } = useGLTF("models/Pollution/toxic_waste_barrel.glb")
+
+    // Ajuste de escala y posición
+    toxicWaste.scene.scale.set(3, 3, 3);
+    toxicWaste.scene.position.set(-4, -1.3, -3);
+
     // La ruta base para las texturas del suelo
-    const PATH = useMemo(() => "materials/water/water_0020_", []);
+    const PATH = useMemo(() => "materials/water/playground_sand_", []);
 
     // Se cargan las texturas del suelo
     const floorTexture = useTexture({
-        map: PATH + "color_1k.jpg",
-        normalMap: PATH + "normal_opengl_1k.png",
-        roughnessMap: PATH + "roughness_1k.jpg",
-        ambientOcclusionMap: PATH + "ao_1k.jpg",
+        map: PATH + "diff_1k.jpg",
+        displacementMap: PATH + "disp_1k.png",
+        normalMap: PATH + "nor_gl_1k.jpg",
+        roughnessMap: PATH + "rough_1k.jpg",
+        ambientOcclusionMap: PATH + "ao_1k.jpg"
     });
 
-    // Carga del primer modelo 3D
-    const { nodes, materials } = useGLTF("models/toxic_waste.glb")
-
-    // Carga del segundo modelo 3D
-    const toxicWasteDrum = useGLTF("models/toxic_waste_drum.glb")
-    toxicWasteDrum.scene.scale.set(0.3, 0.3, 0.3);
-    toxicWasteDrum.scene.position.set(-0.5, -0.268, 0.5);
+    Object.values(floorTexture).forEach((texture) => {
+      texture.wrapS = texture.wrapT = texture.RepeatWrapping;
+      texture.repeat.set(4, 4);
+    });
 
     // Referencia para la luz direccional
     const directionalLightRef = useRef();
@@ -45,64 +50,70 @@ const Pollution = (props) => {
                 autoRotateSpeed={1}
             />
 
-            {/* Iluminaciones de la escena */}
-            <ambientLight intensity={0.4} color={[1, 0.969, 0.62]} />
+            {/* Luz ambiental para simular una sombra difusa */}
+            <ambientLight intensity={0.4} color={[1, 1, 0.9]} />
 
-            <directionalLight 
+            {/* Luz direccional como fuente de luz principal */}
+            <directionalLight
                 ref={directionalLightRef}
-                position={[2, 2, 2]} 
-                intensity={1.2} 
-                color={[1, 0.8, 0.5]}
+                position={[10, 10, 10]}
+                intensity={2.5}
+                color={[1, 0.9, 0.8]}
                 castShadow
-                shadow-mapSize-width={1024}
-                shadow-mapSize-height={1024}
-                shadow-camera-far={10}
-                shadow-camera-left={-5}
-                shadow-camera-right={5}
-                shadow-camera-top={5}
-                shadow-camera-bottom={-5}
+                shadow-mapSize-width={2048}
+                shadow-mapSize-height={2048}
+                shadow-camera-far={30}
+                shadow-camera-left={-15}
+                shadow-camera-right={15}
+                shadow-camera-top={15}
+                shadow-camera-bottom={-15}
             />
-            <pointLight 
-                position={[-1.5, 1.5, -1.5]} 
-                intensity={0.4} 
-                color={[0.5, 0.7, 1]}
+
+            {/* Luz de relleno para iluminar áreas oscuras */}
+            <directionalLight
+                position={[-8, 5, -8]}
+                intensity={1.5}
+                color={[0.8, 0.9, 1]}
+                castShadow
             />
 
             {/* renderizacion del primer objeto -> basura toxica */}
+            <mesh castShadow receiveShadow>
+              <primitive object={toxicWaste.scene}/>
+            </mesh>
+
+            {/* renderizacion del segundo objeto -> Barril toxico */}
             <group {...props} dispose={null}>
-              <group 
-                name="Sketchfab_Scene"
-                scale={[0.5, 0.5, 0.5]} 
-                position={[0, -0.268, -1.5]}
-                >
+              <group name="Sketchfab_Scene" scale={[0.05, 0.05, 0.05]} position={[3, -2, 2]}>
                 <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
-                  <group name="Toxicobjcleanermaterialmergergles">
-                    <mesh
-                      name="Object_2"
-                      castShadow
-                      receiveShadow
-                      geometry={nodes.Object_2.geometry}
-                      material={materials.None}
-                    />
-                    <mesh
-                      name="Object_3"
-                      castShadow
-                      receiveShadow
-                      geometry={nodes.Object_3.geometry}
-                      material={materials['None_DefaultMaterial_albedo.jpg']}
-                    />
+                  <group name="ToxicBarrelfbx" rotation={[Math.PI / 2, 0, 0]}>
+                    <group name="RootNode">
+                      <group name="Barrel_1_Extrude_1_1">
+                        <mesh
+                          name="Barrel_1_Extrude_1_1_Barrel_0"
+                          geometry={nodes.Barrel_1_Extrude_1_1_Barrel_0.geometry}
+                          material={materials.Barrel}
+                          castShadow
+                          receiveShadow
+                        />
+                        <group name="Grnd">
+                          <mesh
+                            name="Grnd_Grnd_0"
+                            geometry={nodes.Grnd_Grnd_0.geometry}
+                            material={materials.Grnd}
+                            castShadow
+                            receiveShadow
+                          />
+                        </group>
+                      </group>
+                    </group>
                   </group>
                 </group>
               </group>
             </group>
 
-             {/* renderizacion del segundo objeto -> Barril toxico */}
-            <mesh castShadow receiveShadow>
-                <primitive object={toxicWasteDrum.scene}/>
-            </mesh>
-
-            <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
-                <circleGeometry args={[4, 64]} />
+            <mesh position={[0, -2, 0]} castShadow receiveShadow>
+                <cylinderGeometry args={[20, 20, 0.1, 32]}/>
                 <meshStandardMaterial {...floorTexture}/>
             </mesh>
         </>
@@ -112,5 +123,5 @@ const Pollution = (props) => {
 export default Pollution;
 
 // Precarga de los modelos GLTF para optimizar su carga en la escena
-useGLTF.preload("models/toxic_waste.glb")
-useGLTF.preload("models/toxic_waste_drum.glb")
+useGLTF.preload("models/Pollution/uploads_files_4314177_Crate_2x.glb")
+useGLTF.preload("models/Pollution/toxic_waste_barrel.glb")
