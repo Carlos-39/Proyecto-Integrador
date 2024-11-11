@@ -1,8 +1,10 @@
-import { OrbitControls, useTexture, useGLTF } from "@react-three/drei";
+import { OrbitControls, useTexture, useGLTF, Html } from "@react-three/drei";
 import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 
-const Pollution = (props) => {
+import './pollution.css'
+
+const Pollution = ({ showHTML3D, ...props }) => {
     const toxicWaste = useGLTF("models/Pollution/uploads_files_4314177_Crate_2x.glb")
     const { nodes, materials } = useGLTF("models/Pollution/toxic_waste_barrel.glb")
 
@@ -116,6 +118,26 @@ const Pollution = (props) => {
                 <cylinderGeometry args={[20, 20, 0.1, 32]}/>
                 <meshStandardMaterial {...floorTexture}/>
             </mesh>
+
+            {/* Renderización de HTML3D solo si showHTML3D es true */}
+            {showHTML3D && (
+              <Html position={[0, 0, 0]}>
+                <div className="pollution-info-container">
+                  <div className="pollution-info">
+                    <h1>¿Sabías que...?</h1>
+                    <p>Más de 1,5 mil millones de personas carecen de acceso a agua limpia debido a la contaminación.</p>
+                  </div>
+                  <div className="pollution-info">
+                    <h1>¿Sabías que...?</h1>
+                    <p>La contaminación del agua contribuye a la extinción de especies y afecta ecosistemas acuáticos completos.</p>
+                  </div>
+                  <div className="pollution-info">
+                    <h1>¿Sabías que...?</h1>
+                    <p>Los productos químicos y residuos tóxicos en el agua generan problemas graves de salud pública.</p>
+                  </div>
+                </div>
+              </Html>
+            )}
         </>
     );
 };
