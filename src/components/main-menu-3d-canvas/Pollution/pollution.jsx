@@ -1,4 +1,4 @@
-import { OrbitControls, useTexture, useGLTF, Html } from "@react-three/drei";
+import { OrbitControls, useTexture, useGLTF, Html, Environment, Sky, Stars, Cloud } from "@react-three/drei";
 import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 
@@ -78,6 +78,19 @@ const Pollution = ({ showHTML3D, ...props }) => {
                 color={[0.8, 0.9, 1]}
                 castShadow
             />
+
+            {/* Entorno y ambiente */}
+            <Environment preset="night" background={false} />
+            <Sky distance={450000} sunPosition={[0, 1, -0.5]} inclination={0.6} azimuth={0.1} turbidity={10} rayleigh={0.2} />
+            
+            {/* Nubes */}
+            <Cloud opacity={0.3} speed={0.2} width={15} depth={3} segments={20} position={[0, 2, -3]} color="#6b8e23" />
+            <Cloud opacity={0.4} speed={0.15} width={15} depth={3} segments={15} position={[-5, 4, 3]} color="#859F3D" />
+            <Cloud opacity={0.5} speed={0.15} width={12} depth={2} segments={15} position={[5, 0, ]} color="#F6FCDF" />
+            <Cloud opacity={0.4} speed={0.15} width={15} depth={3} segments={15} position={[-3, 0, 2]} color="#859F3D" />
+
+            {/* Estrellas */}
+            <Stars radius={100} depth={50} count={500} factor={4} saturation={0} fade speed={0.1} />
 
             {/* renderizacion del primer objeto -> basura toxica */}
             <mesh castShadow receiveShadow>

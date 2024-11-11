@@ -6,8 +6,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuthStore from "../../stores/use-auth-store";
 
-import acercaImg from "../../assets/images/Acerca_del_tema_acidificacion.png";
-import quizIMG from "../../assets/images/Quiz_Acidificacion.jpg";
+import acercaImg from "../../assets/images/pollutionMoreAboutIMG.jpg";
+import quizIMG from "../../assets/images/quizPollutionIMG.jpg";
 
 // Importing the Canvas and Acido components
 import { Canvas } from '@react-three/fiber';

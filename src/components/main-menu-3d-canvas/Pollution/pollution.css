@@ -29,5 +29,14 @@
 .pollution-info p {
     font-size: 1.6rem;
     margin: 0;
-    line-height: 1.8rem;
+    line-height: 2rem;
+}
+
+.tooltip{
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 8px;
+    border-radius: 8px;
 }
