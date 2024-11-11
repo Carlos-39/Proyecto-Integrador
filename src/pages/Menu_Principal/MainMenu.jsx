@@ -25,7 +25,7 @@ const menuItems = [
       "Descubre cómo la contaminación afecta nuestros recursos hídricos, amenazando la biodiversidad y la salud humana, y qué podemos hacer para enfrentarlo.",
     icon: <FaWater />,
     image: <Escene escenario={<Pollution />} x={2} y={1} z={6} bgImage={bgPollution} />,
-    link: "/pollution",
+    link: "/PollutionPage",
   },
   {
     title: "Escasez de Agua",

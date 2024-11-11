@@ -1,8 +1,10 @@
-import { OrbitControls, useTexture, useGLTF } from "@react-three/drei";
-import { useMemo, useRef } from "react";
+import { OrbitControls, useTexture, useGLTF, Html, Environment, Sky, Stars, Cloud } from "@react-three/drei";
+import { useMemo, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 
-const Pollution = (props) => {
+import './pollution.css'
+
+const Pollution = ({ showHTML3D, ...props }) => {
     const toxicWaste = useGLTF("models/Pollution/uploads_files_4314177_Crate_2x.glb")
     const { nodes, materials } = useGLTF("models/Pollution/toxic_waste_barrel.glb")
 
@@ -38,6 +40,9 @@ const Pollution = (props) => {
             directionalLightRef.current.position.z = 2 * Math.sin(elapsedTime);
         }
     });
+
+    // Estado para el efecto de hover
+    const [isHovered, setIsHovered] = useState(false);
 
     return (
         <>  
@@ -77,6 +82,19 @@ const Pollution = (props) => {
                 castShadow
             />
 
+            {/* Entorno y ambiente */}
+            <Environment preset="night" background={false} />
+            <Sky distance={450000} sunPosition={[0, 1, -0.5]} inclination={0.6} azimuth={0.1} turbidity={10} rayleigh={0.2} />
+            
+            {/* Nubes */}
+            <Cloud opacity={0.3} speed={0.2} width={15} depth={3} segments={20} position={[0, 2, -3]} color="#6b8e23" />
+            <Cloud opacity={0.4} speed={0.15} width={15} depth={3} segments={15} position={[-5, 4, 3]} color="#859F3D" />
+            <Cloud opacity={0.5} speed={0.15} width={12} depth={2} segments={15} position={[5, 0, ]} color="#F6FCDF" />
+            <Cloud opacity={0.4} speed={0.15} width={15} depth={3} segments={15} position={[-3, 0, 2]} color="#859F3D" />
+
+            {/* Estrellas */}
+            <Stars radius={100} depth={50} count={500} factor={4} saturation={0} fade speed={0.1} />
+
             {/* renderizacion del primer objeto -> basura toxica */}
             <mesh castShadow receiveShadow>
               <primitive object={toxicWaste.scene}/>
@@ -84,7 +102,7 @@ const Pollution = (props) => {
 
             {/* renderizacion del segundo objeto -> Barril toxico */}
             <group {...props} dispose={null}>
-              <group name="Sketchfab_Scene" scale={[0.05, 0.05, 0.05]} position={[3, -2, 2]}>
+              <group name="Sketchfab_Scene" scale={[0.05, 0.05, 0.05]} position={[3, -2, 2]} onPointerOver={() => setIsHovered(true)} onPointerOut={() => setIsHovered(false)}>
                 <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
                   <group name="ToxicBarrelfbx" rotation={[Math.PI / 2, 0, 0]}>
                     <group name="RootNode">
@@ -95,6 +113,7 @@ const Pollution = (props) => {
                           material={materials.Barrel}
                           castShadow
                           receiveShadow
+                          scale={isHovered ? [1.1, 1.1, 1.1] : [1, 1, 1]}
                         />
                         <group name="Grnd">
                           <mesh
@@ -110,12 +129,41 @@ const Pollution = (props) => {
                   </group>
                 </group>
               </group>
+
+              {/* Texto informativo que se muestra en hover */}
+              {isHovered && (
+                <Html position={[3, 0, 2]}>
+                  <div className="tooltip">
+                    <p>Contaminante más común del agua</p>
+                  </div>
+                </Html>
+              )}
             </group>
 
             <mesh position={[0, -2, 0]} castShadow receiveShadow>
                 <cylinderGeometry args={[20, 20, 0.1, 32]}/>
                 <meshStandardMaterial {...floorTexture}/>
             </mesh>
+
+            {/* Renderización de HTML3D solo si showHTML3D es true */}
+            {showHTML3D && (
+              <Html position={[0, 0, 0]}>
+                <div className="pollution-info-container">
+                  <div className="pollution-info">
+                    <h1>¿Sabías que...?</h1>
+                    <p>Más de 1,5 mil millones de personas carecen de acceso a agua limpia debido a la contaminación.</p>
+                  </div>
+                  <div className="pollution-info">
+                    <h1>¿Sabías que...?</h1>
+                    <p>La contaminación del agua contribuye a la extinción de especies y afecta ecosistemas acuáticos completos.</p>
+                  </div>
+                  <div className="pollution-info">
+                    <h1>¿Sabías que...?</h1>
+                    <p>Los productos químicos y residuos tóxicos en el agua generan problemas graves de salud pública.</p>
+                  </div>
+                </div>
+              </Html>
+            )}
         </>
     );
 };
