@@ -1,0 +1,198 @@
+.pollution-page {
+	background-color: rgba(0, 0, 0, 0);
+	min-height: 100vh;
+	color: black;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	overflow: hidden;
+}
+
+/* Botón flotante para mostrar el contenido */
+.floating-toggle-content-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 1);
+    color: #000;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.floating-toggle-content-btn:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+	transform: scale(1.05);
+}
+
+/* Estilos de main section */
+.pollution-page .main-content {
+	padding: 2rem;
+	/* max-width: 120px; */
+	margin: 0 auto;
+	width: 100%;
+	opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* Clase para el contenido que aparece */
+.fade-in {
+    opacity: 1;
+    transition: opacity 5s ease;
+}
+
+/* Clase para el contenido que desaparece */
+.fade-out {
+    opacity: 0;
+    transition: opacity 5s ease;
+}
+  
+.pollution-page .main-content h2 {
+	font-size: 2.8rem;
+	font-weight: bold;
+	color: #000;
+	text-align: center;
+	padding: 6px;
+	width: 40%;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Caja de sensibilización */
+.pollution-page .main-content .sensibilizacion-box {
+	display: flex;
+	width: 20%;
+	justify-content: center;
+	margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000;
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.pollution-page .main-content .sensibilizacion-box:hover {
+	background-color: #2563eb;
+	color: white;
+}
+  
+.pollution-page .main-content .description-box {
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 15px;
+	border-radius: 12px;
+	margin-bottom: 2rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+  
+.pollution-page .main-content .description-text {
+	/* font-family: 'Poppins', sans-serif; */
+	font-size: 1.6rem;
+	line-height: 1.8rem;
+	color: #000;
+	font-weight: 500;
+	margin-bottom: 20px;
+}
+  
+.pollution-page .main-content .sections-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 60px;
+	margin-top: 20px;
+}
+  
+.main-content .sections-container .section-card {
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 12px;
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+  
+.pollution-page .main-content .sections-container .section-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+  
+.pollution-page .main-content .sections-container .section-card h3 {
+	font-size: 1.8rem;
+	font-weight: bold;
+	margin-bottom: 10px;
+	color: #000;
+}
+  
+.pollution-page .main-content .sections-container .section-card .section-image {
+	width: 100%;
+	height: 230px;
+	object-fit: cover;
+	border-radius: 8px;
+	margin-bottom: 10px;
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: crisp-edges;
+	image-rendering: high-quality;
+}
+  
+.pollution-page .main-content .sections-container .section-card .button {
+	padding: 1rem 1.5rem;
+	border-radius: 8px;
+	/* font-family: 'Poppins', sans-serif; */
+	font-weight: bold;
+	font-size: 1.4rem;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+	border: none;
+	color: white;
+	width: fit-content;
+}
+  
+.pollution-page .main-content .sections-container .section-card .learn-more-btn {
+	background-color: #2563eb;
+}
+  
+.pollution-page .main-content .sections-container .section-card .learn-more-btn:hover {
+	background-color: #1d4ed8;
+}
+  
+.pollution-page .main-content .sections-container .section-card .quiz-btn {
+	background-color: #059669;
+}
+  
+.pollution-page .main-content .sections-container .section-card .quiz-btn:hover {
+	background-color: #047857;
+}
+
+/* Información adicional de la descripción */
+.toggle-more-btn {
+    background-color: #2563eb;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-more-btn:hover {
+    background-color: #1d4ed8;
+}
+
+.additional-info {
+    margin-top: 10px;
+    font-size: 1.4rem;
+    color: #000;
+}
