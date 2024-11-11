@@ -104,6 +104,7 @@
 	line-height: 1.8rem;
 	color: #000;
 	font-weight: 500;
+	margin-bottom: 20px;
 }
   
 .pollution-page .main-content .sections-container {
@@ -172,4 +173,26 @@
   
 .pollution-page .main-content .sections-container .section-card .quiz-btn:hover {
 	background-color: #047857;
+}
+
+/* Información adicional de la descripción */
+.toggle-more-btn {
+    background-color: #2563eb;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-more-btn:hover {
+    background-color: #1d4ed8;
+}
+
+.additional-info {
+    margin-top: 10px;
+    font-size: 1.4rem;
+    color: #000;
 }

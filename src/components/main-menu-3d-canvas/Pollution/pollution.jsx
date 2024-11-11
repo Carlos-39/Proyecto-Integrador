@@ -1,5 +1,5 @@
 import { OrbitControls, useTexture, useGLTF, Html, Environment, Sky, Stars, Cloud } from "@react-three/drei";
-import { useMemo, useRef } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 
 import './pollution.css'
@@ -40,6 +40,9 @@ const Pollution = ({ showHTML3D, ...props }) => {
             directionalLightRef.current.position.z = 2 * Math.sin(elapsedTime);
         }
     });
+
+    // Estado para el efecto de hover
+    const [isHovered, setIsHovered] = useState(false);
 
     return (
         <>  
@@ -99,7 +102,7 @@ const Pollution = ({ showHTML3D, ...props }) => {
 
             {/* renderizacion del segundo objeto -> Barril toxico */}
             <group {...props} dispose={null}>
-              <group name="Sketchfab_Scene" scale={[0.05, 0.05, 0.05]} position={[3, -2, 2]}>
+              <group name="Sketchfab_Scene" scale={[0.05, 0.05, 0.05]} position={[3, -2, 2]} onPointerOver={() => setIsHovered(true)} onPointerOut={() => setIsHovered(false)}>
                 <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
                   <group name="ToxicBarrelfbx" rotation={[Math.PI / 2, 0, 0]}>
                     <group name="RootNode">
@@ -110,6 +113,7 @@ const Pollution = ({ showHTML3D, ...props }) => {
                           material={materials.Barrel}
                           castShadow
                           receiveShadow
+                          scale={isHovered ? [1.1, 1.1, 1.1] : [1, 1, 1]}
                         />
                         <group name="Grnd">
                           <mesh
@@ -125,6 +129,15 @@ const Pollution = ({ showHTML3D, ...props }) => {
                   </group>
                 </group>
               </group>
+
+              {/* Texto informativo que se muestra en hover */}
+              {isHovered && (
+                <Html position={[3, 0, 2]}>
+                  <div className="tooltip">
+                    <p>Contaminante más común del agua</p>
+                  </div>
+                </Html>
+              )}
             </group>
 
             <mesh position={[0, -2, 0]} castShadow receiveShadow>

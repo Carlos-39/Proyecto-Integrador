@@ -23,6 +23,7 @@ const PollutionPage = () => {
 	const [showContent, setShowContent] = useState(true);
 	const [isFading, setIsFading] = useState(false);
 	const [showHTML3D, setShowHTML3D] = useState(false);
+	const [showMoreText, setShowMoreText] = useState(false);
   
 	useEffect(() => {
 		observeAuthState();
@@ -39,7 +40,7 @@ const PollutionPage = () => {
 	const username = user ? capitalizeWords(user.displayName) : "Invitado";
 
 	const handleLearnMoreClick = () => {
-		navigate("/AcidificationInfoPage");
+		navigate("/Tutorial");
 	};
 
 	// Función para alternar visibilidad con animación
@@ -48,16 +49,20 @@ const PollutionPage = () => {
 
     	if (showContent) {
         	// Si se muestra el contenido, desactiva la visibilidad con la animación de desvanecimiento
-        	setIsFading(true); // Activa la clase de desvanecido
+        	setIsFading(true);
 
         	setTimeout(() => {
-        	    setShowContent(false); // Cambia la visibilidad una vez termine la animación
-        	    setIsFading(false); // Desactiva la clase de desvanecido
-        	}, 500); // Duración de la animación en milisegundos
+        	    setShowContent(false);
+        	    setIsFading(false);
+        	}, 500);
     	} else {
         // Si está oculto, solo activa el contenido sin desvanecimiento
         setShowContent(true);
     	}
+	};
+
+	const toggleShowMoreText = () => {
+		setShowMoreText(!showMoreText);
 	};
 
 	return (
@@ -100,6 +105,19 @@ const PollutionPage = () => {
 							sustancias químicas, desechos y contaminantes ingresan en ríos, lagos y océanos,
 							dañando los ecosistemas y afectando la salud humana y animal.
 						</p>
+
+						{showMoreText && (
+							<p className="description-text additional-info">
+								La falta de conciencia y regulaciones laxas agravan la situación, ya que industrias y comunidades
+								arrojan desechos tóxicos en cuerpos de agua sin tratamiento adecuado. Estos contaminantes incluyen
+								metales pesados, plásticos y productos químicos, los cuales pueden afectar gravemente la biodiversidad
+								y la cadena alimentaria.
+							</p>
+						)}
+
+						<button className="toggle-more-btn" onClick={toggleShowMoreText}>
+							{showMoreText ? "Mostrar menos" : "Leer más"}
+						</button>
 					</div>
 
 					<div className="sensibilizacion-box" onClick={toggleContentVisibility}>

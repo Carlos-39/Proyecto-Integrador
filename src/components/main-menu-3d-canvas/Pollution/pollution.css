@@ -32,11 +32,12 @@
     line-height: 2rem;
 }
 
-.tooltip{
-    background-color: rgba(0, 0, 0, 0.4);
+.tooltip {
+    background: rgba(0, 0, 0, 0.7);
     color: white;
-    font-size: 1rem;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    white-space: wrap;
     font-weight: bold;
-    padding: 8px;
-    border-radius: 8px;
 }
