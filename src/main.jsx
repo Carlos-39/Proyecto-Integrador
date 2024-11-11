@@ -8,6 +8,7 @@ import MainMenu from './pages/Menu_Principal/MainMenu';
 import Tutorial from './pages/Tutorial/Tutorial';
 import AcidificationPage from './pages/ocean-acidification/AcidificationPage';
 import AcidificationInfoPage from "./pages/ocean-acidification-info/AcidificationInfoPage";
+import PollutionPage from './pages/pollutionPage/PollutionPage';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: '/AcidificationInfoPage',
     element: <AcidificationInfoPage />
+  },
+  {
+    path: '/PollutionPage',
+    element: <PollutionPage />
   }
 ]);
 

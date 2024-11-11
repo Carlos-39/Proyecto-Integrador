@@ -1,0 +1,43 @@
+.pollution-info-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.pollution-info {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+    width: 200px;
+	height: 170px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.pollution-info h1 {
+    font-size: 2rem;
+    color: #FFD700;
+    margin-bottom: 5px;
+	font-weight: bold;
+}
+
+.pollution-info p {
+    font-size: 1.6rem;
+    margin: 0;
+    line-height: 2rem;
+}
+
+.tooltip {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    white-space: wrap;
+    font-weight: bold;
+}
