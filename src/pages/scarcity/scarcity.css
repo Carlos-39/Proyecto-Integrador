@@ -4,3 +4,149 @@
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
 }
+
+/* Estilos de main section */
+.main-content {
+    padding: 2rem;
+    /* max-width: 120px; */
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .main-content h2 {
+    /* font-family: 'Montserrat', sans-serif; */
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #000;
+    /* backdrop-filter: blur(1px); */
+    text-align: center;
+    padding: 6px;
+    width: 40%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .main-content .description-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .main-content .description-text {
+    /* font-family: 'Poppins', sans-serif; */
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    color: #000;
+    font-weight: 500;
+  }
+  
+  .main-content .sections-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
+    margin-top: 20px;
+  }
+  
+  .main-content .sections-container .section-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .main-content .sections-container .section-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .main-content .sections-container .section-card h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #000;
+  }
+  
+  .main-content .sections-container .section-card .section-image {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+      image-rendering: high-quality;
+  }
+  
+  .main-content .sections-container .section-card .button {
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    /* font-family: 'Poppins', sans-serif; */
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border: none;
+    color: white;
+    width: fit-content;
+  }
+  
+  .main-content .sections-container .section-card .learn-more-btn {
+    background-color: #2563eb;
+  }
+  
+  .main-content .sections-container .section-card .learn-more-btn:hover {
+    background-color: #1d4ed8;
+  }
+  
+  .main-content .sections-container .section-card .quiz-btn {
+    background-color: #059669;
+  }
+  
+  .main-content .sections-container .section-card .quiz-btn:hover {
+    background-color: #047857;
+  }
+  
+  /* Estilos de página responsivos */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      padding: 1rem;
+      gap: 1rem;
+      text-align: center;
+    }
+  
+    .logo-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .company-info {
+      margin-left: 0;
+      margin-top: 0.5rem;
+    }
+  
+    .title {
+      font-size: 2rem;
+    }
+  
+    .main-content {
+      padding: 1rem;
+    }
+  
+    .page-title {
+      font-size: 2rem;
+      text-align: center;
+    }
+  
+    .sections-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
