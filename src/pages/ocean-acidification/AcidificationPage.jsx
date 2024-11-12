@@ -82,12 +82,12 @@ const AcidificationPage = () => {
           top: "0", 
           left: "0", 
           width: "100%", 
-          height: "100vh", 
+          height: "100%", 
           background: `url(${coralImage}) no-repeat center center fixed`, 
           backgroundSize: "cover",
         }}
       >
-        <Acido position={[0, -1, -1]} showHTML3D={showHTML3D} />
+        <Acido position={[2, 0.7, 2]} showHTML3D={showHTML3D} />
       </Canvas>
 
       <Header username={username} />
