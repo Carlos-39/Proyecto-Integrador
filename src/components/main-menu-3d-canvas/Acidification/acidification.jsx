@@ -1,15 +1,31 @@
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useState, useEffect } from "react";
+import * as THREE from 'three';
 
 const Acidification = () => {
   const bubblesRef = useRef([]);
   const particlesRef = useRef([]);
   const groupRef = useRef();
+  const [phLevel, setPhLevel] = useState(8.2);
 
   const { scene: deterioratedCoral } = useGLTF(
     "/models/pocillopora_eydouxi.glb"
   );
+
+  // Clone coral model and configure materials
+  useEffect(() => {
+    const clonedCoral = deterioratedCoral.clone();
+    clonedCoral.traverse((node) => {
+      if (node.isMesh) {
+        node.material = new THREE.MeshStandardMaterial({
+          ...node.material,
+          transparent: true,
+          opacity: 1
+        });
+      }
+    });
+  }, [deterioratedCoral]);
 
   const particles = useMemo(() => {
     return Array.from({ length: 50 }, () => ({
@@ -37,6 +53,13 @@ const Acidification = () => {
         particle.rotation.z += delta * 0.2;
       }
     });
+
+    // Update coral opacity based on pH level
+    groupRef.current?.traverse((node) => {
+      if (node.isMesh && node.material) {
+        node.material.opacity = phLevel / 8.2;
+      }
+    });
   });
 
   return (
@@ -60,7 +83,7 @@ const Acidification = () => {
         castShadow
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
-        shadow-bias={-0.0001} // Adjusting bias can help with shadow artifacts
+        shadow-bias={-0.0001}
       />
       <pointLight
         position={[-1.5, 1.5, -1.5]}
@@ -69,27 +92,29 @@ const Acidification = () => {
         castShadow
       />
 
+      {/* Coral models */}
       <primitive
-        object={deterioratedCoral}
+        object={deterioratedCoral.clone()}
         position={[1.5, -0.8, -1.2]}
         scale={0.6}
       />
       <primitive
-        object={deterioratedCoral}
+        object={deterioratedCoral.clone()}
         position={[0.5, -0.6, 1.2]}
         scale={0.5}
       />
       <primitive
-        object={deterioratedCoral}
+        object={deterioratedCoral.clone()}
         position={[1.0, -0.7, 0.5]}
         scale={0.7}
       />
       <primitive
-        object={deterioratedCoral}
+        object={deterioratedCoral.clone()}
         position={[2.0, -0.9, -0.5]}
         scale={0.8}
       />
 
+      {/* Bubbles */}
       {Array.from({ length: 200 }, (_, i) => (
         <mesh
           key={i}
@@ -99,22 +124,31 @@ const Acidification = () => {
             Math.random() * 4 - 2,
             Math.random() * 12 - 6,
           ]}
-          castShadow // Habilitar sombras en las burbujas
+          castShadow
         >
           <sphereGeometry args={[0.2, 16, 16]} />
-          <meshStandardMaterial color="#6fc2e3" transparent opacity={0.7} />
+          <meshStandardMaterial 
+            color="#6fc2e3" 
+            transparent 
+            opacity={0.7 * (phLevel / 8.2)} 
+          />
         </mesh>
       ))}
 
+      {/* Particles */}
       {particles.map((particle, index) => (
         <mesh
           key={index}
           ref={(el) => (particlesRef.current[index] = el)}
           position={[particle.x, particle.y, particle.z]}
-          castShadow // Enable shadows on particles
+          castShadow
         >
           <sphereGeometry args={[0.05, 8, 8]} />
-          <meshStandardMaterial color="#f2f2f2" transparent opacity={0.7} />
+          <meshStandardMaterial 
+            color="#f2f2f2" 
+            transparent 
+            opacity={0.7 * (phLevel / 8.2)}
+          />
         </mesh>
       ))}
     </group>
