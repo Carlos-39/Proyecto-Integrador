@@ -11,7 +11,6 @@ import scarcityImage from "../../assets/images/escacez_agua.jpg"
 import quizImage from "../../assets/images/Quiz_Acidificacion.jpg"
 import useAuthStore from "../../stores/use-auth-store.js";
 
-
 const Content = () =>
   {
     const windVaneRef = useRef(null)
@@ -63,7 +62,7 @@ const Content = () =>
           enableZoom={false}
         />
         <Environment
-          files={"/public/hdris/scarcitySkybox.hdr"}
+          files={'hdris/scarcitySkybox.hdr'}
           background={true}
           environmentIntensity={0}
         />
