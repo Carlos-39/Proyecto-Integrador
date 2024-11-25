@@ -6,14 +6,14 @@ import './pollution.css'
 
 const Pollution = ({ showHTML3D, ...props }) => {
     const toxicWaste = useGLTF("models/Pollution/uploads_files_4314177_Crate_2x.glb")
-    const { nodes, materials } = useGLTF("models/Pollution/toxic_waste_barrel.glb")
+    const { nodes, materials } = useGLTF("/models/Pollution/toxic_waste_barrel.glb")
 
     // Ajuste de escala y posición
     toxicWaste.scene.scale.set(3, 3, 3);
     toxicWaste.scene.position.set(-4, -1.3, -3);
 
     // La ruta base para las texturas del suelo
-    const PATH = useMemo(() => "materials/water/playground_sand_", []);
+    const PATH = useMemo(() => "/materials/water/playground_sand_", []);
 
     // Se cargan las texturas del suelo
     const floorTexture = useTexture({
@@ -171,5 +171,5 @@ const Pollution = ({ showHTML3D, ...props }) => {
 export default Pollution;
 
 // Precarga de los modelos GLTF para optimizar su carga en la escena
-useGLTF.preload("models/Pollution/uploads_files_4314177_Crate_2x.glb")
-useGLTF.preload("models/Pollution/toxic_waste_barrel.glb")
+useGLTF.preload("/models/Pollution/uploads_files_4314177_Crate_2x.glb")
+useGLTF.preload("/models/Pollution/toxic_waste_barrel.glb")
