@@ -17,27 +17,13 @@ import Pollutionbg from "../../components/main-menu-3d-canvas/Pollution/pollutio
 import PollutionImage from "../../assets/images/pollutionIMG.jpg"; 
 
 const PollutionPage = () => {
-	const { user, observeAuthState } = useAuthStore();
 	const navigate = useNavigate();
 
 	const [showContent, setShowContent] = useState(true);
 	const [isFading, setIsFading] = useState(false);
 	const [showHTML3D, setShowHTML3D] = useState(false);
 	const [showMoreText, setShowMoreText] = useState(false);
-  
-	useEffect(() => {
-		observeAuthState();
-	}, [observeAuthState]);
 
-	const capitalizeWords = (text) => {
-		return text
-		    .toLowerCase()
-		    .split(" ")
-		    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-		    .join(" ");
-	};
-
-	const username = user ? capitalizeWords(user.displayName) : "Invitado";
 
 	const handleLearnMoreClick = () => {
 		navigate("/Tutorial");
@@ -84,7 +70,7 @@ const PollutionPage = () => {
     			<Pollutionbg position={[2, 0.7, 2]} showHTML3D={showHTML3D} />
     		</Canvas>
 
-      		<Header username={username} />
+      		<Header/>
 
 			{!showContent && (
                 <button 

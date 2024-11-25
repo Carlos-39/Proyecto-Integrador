@@ -15,7 +15,8 @@ import { OrbitControls } from '@react-three/drei';
 import AcidEarth from "../AcidificationScene/models/AcidEarth.jsx";
 
 const Acidification = () => {
-  const { user, observeAuthState } = useAuthStore();
+  
+  const { user, observeAuthState } = useAuthStore();Develop:src/pages/ocean-acidification/AcidificationPage.jsx
   const navigate = useNavigate();
 
   const [showContent, setShowContent] = useState(true);
@@ -31,20 +32,6 @@ const Acidification = () => {
     "La acidificación afecta especialmente a los arrecifes de coral, que podrían desaparecer por completo para el año 2050 si no se toman medidas.",
     "Algunos organismos marinos, como las ostras, ya están teniendo dificultades para formar sus conchas debido a la acidificación del océano.",
   ];
-
-  useEffect(() => {
-    observeAuthState();
-  }, [observeAuthState]);
-
-  const capitalizeWords = (text) => {
-    return text
-      .toLowerCase()
-      .split(" ")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-  };
-
-  const username = user ? capitalizeWords(user.displayName) : "Invitado";
 
   const handleLearnMoreClick = () => {
     navigate("/AcidificationInfoPage");
@@ -92,7 +79,7 @@ const Acidification = () => {
         <AcidEarth position={[2, 0.7, 2]} showHTML3D={showHTML3D} />
       </Canvas>
 
-      <Header username={username} />
+      <Header/>
 
       {!showContent && (
         <>

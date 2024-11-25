@@ -37,7 +37,7 @@ const router = createBrowserRouter([
     element: <AcidificationInfoPage />
   },
   {
-    path:'/Scarcity',
+    path:'/MainMenu/Scarcity',
     element: <Scarcity/>
   },
   {
