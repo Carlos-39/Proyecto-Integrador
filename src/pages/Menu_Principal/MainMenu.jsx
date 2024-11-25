@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, useNavigate } from "react-router-dom"; 
 import "./MainMenu.css";
 import useAuthStore from "../../stores/use-auth-store";
@@ -44,26 +43,10 @@ const menuItems = [
 ];
 
 const MainMenu = () => {
-  const { user, observeAuthState } = useAuthStore();
   const navigate = useNavigate();
-
-  React.useEffect(() => {
-    observeAuthState();
-  }, [observeAuthState]);
-
-  const capitalizeWords = (text) => {
-    return text
-      .toLowerCase()
-      .split(" ")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-  };
-
-  const username = user ? capitalizeWords(user.displayName) : "Invitado";
-
   return (
     <div className="main-menu">
-      <Header username={username} />
+      <Header/>
 
       <section className="text-container">
         <div className="transparent-box">

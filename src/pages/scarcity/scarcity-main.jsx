@@ -4,12 +4,11 @@ import { Environment,
          useTexture,
          Html } from "@react-three/drei";
 import { Cactus, BizonSkull, WindVane, WoodSign } from "../../components/main-menu-3d-canvas/Scarcity/scarcity-models";
-import { useMemo, useRef, useState, useEffect } from "react";
+import { useMemo, useRef, useState } from "react";
 import Header from "../../components/Header/Header.jsx"
 import "../scarcity/scarcity.css"
 import scarcityImage from "../../assets/images/escacez_agua.jpg"
 import quizImage from "../../assets/images/Quiz_Acidificacion.jpg"
-import useAuthStore from "../../stores/use-auth-store.js";
 
 const Content = () =>
   {
@@ -168,24 +167,10 @@ const HtmlContent = () =>
 
 export default () =>
   {
-    const { user, observeAuthState } = useAuthStore();
-    useEffect(() => {
-      observeAuthState();
-    }, [observeAuthState]);
-
-    const capitalizeWords = (text) => {
-      return text
-        .toLowerCase()
-        .split(" ")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ");
-    };
-
-    const username = user ? capitalizeWords(user.displayName) : "Invitado";
 
     return (
       <>
-        <Header username={username}/>
+        <Header/>
         <Canvas
           style={{
             width: "100%",

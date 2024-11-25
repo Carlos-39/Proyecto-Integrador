@@ -10,27 +10,11 @@ import Carousel from "../../components/Carousel";
 import Header from '../../components/Header/Header.jsx'
 
 const AcidificationInfoPage = () => {
-  const { user, observeAuthState } = useAuthStore();
-
   const navigate = useNavigate();
 
   const backToMainMenu = () => {
     navigate("/AcidificationPage"); // Navega a la página de información cuando se hace clic
   };
-
-  React.useEffect(() => {
-    observeAuthState();
-  }, [observeAuthState]);
-
-  const capitalizeWords = (text) => {
-    return text
-      .toLowerCase()
-      .split(" ")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-  };
-
-  const username = user ? capitalizeWords(user.displayName) : "Invitado";
 
   const consequences = [
     "Los corales tienen dificultad para construir sus estructuras, lo que lleva a la degradación de los ecosistemas.",
@@ -41,7 +25,7 @@ const AcidificationInfoPage = () => {
 
   return (
     <div className="acidification-info-page">
-      <Header username={username} />
+      <Header/>
 
       <main className="main-content">
         <h2 className="page-title">Acidificación de los Océanos</h2>

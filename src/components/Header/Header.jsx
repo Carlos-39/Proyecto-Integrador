@@ -1,9 +1,29 @@
-import React from 'react';
+import { useEffect } from 'react';
+import useAuthStore from '../../stores/use-auth-store';
 import { FaTrophy } from 'react-icons/fa';
 import projectLogo from '../../assets/images/logo.png';
 import './Header.css'
 
-const Header = ({username}) => {
+const Header = () => {
+
+	// gets the logged user
+	const { user, observeAuthState } = useAuthStore();
+	useEffect(() => {
+		observeAuthState();
+	}, [observeAuthState]);
+
+	const capitalizeWords = (text) => {
+	return text
+		.toLowerCase()
+		.split(" ")
+		.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+		.join(" ");
+	};
+	const username = user ? capitalizeWords(user.displayName) : "Invitado";
+	
+	// gets the crumbs
+
+
 	return (
 		<header className="header">
         	<div className="logo-container">
@@ -20,6 +40,7 @@ const Header = ({username}) => {
         	    <span className="trophy-text">Trofeos</span>
         	  </div>
         	</div>
+			<nav></nav>
       	</header>
 	)
 }
