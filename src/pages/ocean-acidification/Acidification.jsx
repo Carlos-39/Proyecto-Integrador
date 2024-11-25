@@ -7,12 +7,11 @@ import quiz from "../../assets/images/Quiz_Acidificacion.jpg";
 import Header from "../../components/Header/Header.jsx";
 
 // React Three Fiber and Three.js imports
-import * as THREE from 'three';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 
 // Import your 3D model component
-import AcidEarth from "../AcidificationScene/models/AcidEarth.jsx";
+import Acido from "../../components/main-menu-3d-canvas/Acidification/Acidification2.jsx";
 
 const Acidification = () => {
   const { user, observeAuthState } = useAuthStore();
@@ -75,7 +74,7 @@ const Acidification = () => {
       >
         <ambientLight intensity={0.5} />
         <OrbitControls />
-        <AcidEarth position={[2, 0.7, 2]} showHTML3D={showHTML3D} />
+        <Acido showHTML3D={showHTML3D} />
       </Canvas>
 
       <Header/>
