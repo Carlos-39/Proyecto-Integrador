@@ -29,11 +29,11 @@ const router = createBrowserRouter([
     element: <Tutorial />
   },
   {
-    path: '/AcidificationPage',
+    path: '/MainMenu/Acidification',
     element: <AcidificationPage />
   },
   {
-    path: '/AcidificationInfoPage',
+    path: '/MainMenu/Acidification/Info',
     element: <AcidificationInfoPage />
   },
   {

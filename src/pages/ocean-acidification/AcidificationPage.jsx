@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import useAuthStore from "../../stores/use-auth-store";
 import "./AcidificationPage.css";
 import acercaImg from "../../assets/images/Acerca_del_tema_acidificacion.png";
 import quiz from "../../assets/images/Quiz_Acidificacion.jpg";
@@ -31,7 +30,7 @@ const AcidificationPage = () => {
   ];
 
   const handleLearnMoreClick = () => {
-    navigate("/AcidificationInfoPage");
+    navigate("/MainMenu/Acidification/Info");
   };
 
   // Función para alternar visibilidad con animación
