@@ -32,7 +32,7 @@ const Acidification = () => {
   ];
 
   const handleLearnMoreClick = () => {
-    navigate("/AcidificationInfoPage");
+    navigate("/MainMenu/Acidification/Info");
   };
 
   // Función para alternar visibilidad con animación
