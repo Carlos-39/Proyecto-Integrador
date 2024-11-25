@@ -5,7 +5,7 @@ import { Cactus, BizonSkull, Can } from "../Scarcity/scarcity-models.jsx"
 const Desert = () => 
     {
         // Se importa el material PBR para el suelo del desierto
-        const PATH = useMemo(() => "materials/mud-cracked/mud_cracked_dry_03_", []);
+        const PATH = useMemo(() => "/materials/mud-cracked/mud_cracked_dry_03_", []);
         const floorTexture = useTexture({
             map: PATH + "diff_1k.jpg",
             displacementMap: PATH + "disp_1k.png",
