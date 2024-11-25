@@ -30,7 +30,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/MainMenu/Acidification',
-    element: <AcidificationPage />
+    element: <Acidification />
   },
   {
     path: '/MainMenu/Acidification/Info',
