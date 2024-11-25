@@ -31,7 +31,7 @@ const menuItems = [
     description: "El agua se está agotando rápidamente en todo el mundo. Descubre sus causas y soluciones aquí.",
     icon: <FaExclamationTriangle />,
     image: <Escene escenario={<Scarcity />} x={2} y={1} z={6} bgImage={bgScarcity} />,
-    link: "/scarcity",
+    link: "/MainMenu/scarcity",
   },
   {
     title: "Acidificación de los Océanos",
