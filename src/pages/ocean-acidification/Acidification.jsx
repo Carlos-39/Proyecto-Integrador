@@ -15,8 +15,7 @@ import { OrbitControls } from '@react-three/drei';
 import AcidEarth from "../AcidificationScene/models/AcidEarth.jsx";
 
 const Acidification = () => {
-  
-  const { user, observeAuthState } = useAuthStore();Develop:src/pages/ocean-acidification/AcidificationPage.jsx
+  const { user, observeAuthState } = useAuthStore();
   const navigate = useNavigate();
 
   const [showContent, setShowContent] = useState(true);
