@@ -1,7 +1,7 @@
 import { OrbitControls, useTexture, useGLTF, Html, Environment, Sky, Stars, Cloud } from "@react-three/drei";
 import { useMemo, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
-import { RigidBody } from "@react-three/rapier";
+import { RigidBody, Physics } from "@react-three/rapier";
 
 import './pollution.css'
 
@@ -141,12 +141,15 @@ const Pollution = ({ showHTML3D, disableAutoRotate = false, ...props }) => {
               )}
             </group>
 
-            {/* <RigidBody type="fixed">
-              <mesh position={[0, -2, 0]} castShadow receiveShadow>
-                <cylinderGeometry args={[20, 20, 0.1, 32]} />
-                <meshStandardMaterial {...floorTexture} />
-              </mesh>
-            </RigidBody> */}
+            {/* <Physics>
+              <RigidBody type="fixed">
+                <mesh position={[0, -2, 0]} castShadow receiveShadow>
+                  <cylinderGeometry args={[20, 20, 0.1, 32]} />
+                  <meshStandardMaterial {...floorTexture} />
+                </mesh>
+              </RigidBody>
+            </Physics> */}
+            
 
             <mesh position={[0, -2, 0]} castShadow receiveShadow>
                 <cylinderGeometry args={[20, 20, 0.1, 32]} />

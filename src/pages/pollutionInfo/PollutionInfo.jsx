@@ -101,7 +101,7 @@ const PollutionInfo = () => {
           			<div className="canvas-container">
             			<Canvas camera={{ position: [0, 5, 15], fov: 50 }}>
               			<Suspense fallback={null}>
-                		<Physics gravity={[0, -0.5, 0]}> {/* Ajusta la gravedad para que caigan lentamente */}
+                		<Physics gravity={[0, -0.5, 0]}>
                 		  	<Pollution showHTML3D={false} disableAutoRotate={true} />
                 		  	<Text3D position={[-3, 4, 5]} font="/public/KG-Architecturally-Artistic_Regular.json" size={0.7} height={0.3} anchorX="center" anchorY="middle">
                 		  	  	{activeSection === "problems" ? "Problemas" : "Soluciones"}
