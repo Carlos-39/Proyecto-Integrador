@@ -10,6 +10,7 @@ import Acidification from './pages/ocean-acidification/Acidification';
 import AcidificationInfoPage from "./pages/ocean-acidification-info/AcidificationInfoPage";
 import Scarcity from './pages/scarcity/scarcity-main.jsx';
 import PollutionPage from './pages/pollutionPage/PollutionPage';
+import PollutionInfo from './pages/pollutionInfo/PollutionInfo.jsx'
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
   {
     path: '/MainMenu/Pollution',
     element: <PollutionPage />
+  },
+  {
+    path: '/MainMenu/Pollution/Info',
+    element: <PollutionInfo />
   }
 ]);
 
