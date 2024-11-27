@@ -103,12 +103,18 @@ const PollutionInfo = () => {
               			<Suspense fallback={null}>
                 		<Physics gravity={[0, -0.5, 0]}>
                 		  	<Pollution showHTML3D={false} disableAutoRotate={true} />
-                		  	<Text3D position={[-3, 4, 5]} font="/public/KG-Architecturally-Artistic_Regular.json" size={0.7} height={0.3} anchorX="center" anchorY="middle">
+                		  	<Text3D position={[-3, 4, 5]} font="/fonts/KG-Architecturally-Artistic_Regular.json" size={0.7} height={0.3} anchorX="center" anchorY="middle">
                 		  	  	{activeSection === "problems" ? "Problemas" : "Soluciones"}
                 		  	  	<meshStandardMaterial color="#fb8500" />
                 		  	</Text3D>
-                		  	<Text position={[0.5, 2.8, 5]} fontSize={0.7} color="#000814" anchorX="center" anchorY="middle">
-                		  	  	de la Contaminación del Agua
+                		  	<Text 
+								position={[0.5, 2.8, 5]} 
+								fontSize={0.7} color="#000814" 
+								anchorX="center" 
+								anchorY="middle"
+								font="/fonts/Winter-Selfie.ttf"
+							>
+                		  	  	de la Contaminacion del Agua
                 		  	</Text>
                 		  	<ambientLight intensity={0.5} />
                 		  	<directionalLight position={[10, 10, 5]} intensity={1} />
