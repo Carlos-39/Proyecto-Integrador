@@ -3,12 +3,13 @@ import { Environment,
          OrbitControls,
          useTexture,
          Html } from "@react-three/drei";
-import { Cactus, BizonSkull, WindVane, WoodSign } from "../../components/main-menu-3d-canvas/Scarcity/scarcity-models";
+import { Cactus, BizonSkull, WindVane, WoodSign } from "../../../components/main-menu-3d-canvas/Scarcity/scarcity-models.jsx";
 import { useMemo, useRef, useState } from "react";
-import Header from "../../components/Header/Header.jsx"
-import "../scarcity/scarcity.css"
-import scarcityImage from "../../assets/images/escacez_agua.jpg"
-import quizImage from "../../assets/images/Quiz_Acidificacion.jpg"
+import Header from "../../../components/Header/Header.jsx";
+import "../main/scarcityMain.css"
+import scarcityImage from "../../../assets/images/escacez_agua.jpg"
+import quizImage from "../../../assets/images/Quiz_Acidificacion.jpg"
+import { useNavigate } from "react-router-dom";
 
 const Content = () =>
   {
@@ -77,7 +78,7 @@ const Content = () =>
             />
         {/* Renderiza los objetos del craneo y el cactus */}
             <BizonSkull 
-              position={[-8, -8, 4]}
+              position={[-8, -8, 2]}
               rotation={[0, -Math.PI/4, 0]}
               onClick={(e)=>{e.stopPropagation()}}
             />
@@ -86,7 +87,7 @@ const Content = () =>
               onClick={(e)=>{e.stopPropagation()}}
             />
             <WindVane 
-              position={[25.5, 0, -4]}
+              position={[24.5, 0, -6]}
               ref={windVaneRef}
               onClick={(e)=>{setSpeed(20)}}
             />
@@ -112,6 +113,12 @@ const Content = () =>
 
 const HtmlContent = () =>
   {
+    const navigate = useNavigate()
+    const handleLearnMore = () =>
+    {
+      navigate('/MainMenu/Scarcity/Info')
+    }
+
     return(
       <Html
         transform
@@ -142,7 +149,10 @@ const HtmlContent = () =>
                 className="section-image"
                 draggable="false"
               />
-              <button className="button learn-more-btn" onClick={() => {}}>
+              <button 
+                className="button learn-more-btn" 
+                onClick={handleLearnMore}
+              >
                 Aprender más
               </button>
             </div>
@@ -179,7 +189,7 @@ export default () =>
             top: "0px",
             left: "0px",
           }}
-          camera={{position: [0, 0, 16]}}
+          camera={{position: [0, 0, 12]}}
           shadows
         >
           <Content/>

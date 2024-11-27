@@ -26,6 +26,7 @@
 	font-size: 1.5rem;
 	display: flex;
 	flex-flow: row;
+	user-select: none;
 }
 
 .logo-container {
@@ -45,12 +46,14 @@
 .company-info h1 {
 	font-size: 2.5rem;
 	font-weight: bold;
+	user-select: none;
 }
   
 .company-info p{
 	font-size: 1.2rem;
 	font-weight: 600;
 	color: #000;
+	user-select: none;
 }
 
 .username{
@@ -80,6 +83,7 @@
 	font-size: 1.2rem;
 	font-weight: bold;
 	color: #000;
+	user-select: none;
 }
 
 .trophy-container {
@@ -93,6 +97,7 @@
   	border-radius: 8px;
 	color: #000;
   	border: 2px solid rgb(255, 217, 0);
+	user-select: none;
 }
   
 .trophy-container:hover {

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import useAuthStore from "../../stores/use-auth-store.js";
 import "./Acidification.css";
 import acercaImg from "../../assets/images/Acerca_del_tema_acidificacion.png";
 import quiz from "../../assets/images/Quiz_Acidificacion.jpg";
@@ -14,7 +13,6 @@ import { OrbitControls } from '@react-three/drei';
 import Acido from "../../components/main-menu-3d-canvas/Acidification/Acidification2.jsx";
 
 const Acidification = () => {
-  const { user, observeAuthState } = useAuthStore();
   const navigate = useNavigate();
 
   const [showContent, setShowContent] = useState(true);
