@@ -30,10 +30,10 @@ export function Cactus(props) {
   )
 }
 
-export function BizonSkull(props) {
+export const BizonSkull = forwardRef((props, ref) => {
   const { nodes, materials } = useGLTF('/models/Scarcity/bizon-skull.glb')
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} ref={ref}>
       <mesh
         castShadow
         receiveShadow
@@ -42,7 +42,7 @@ export function BizonSkull(props) {
       />
     </group>
   )
-}
+})
 
 export function Can(props) {
   const { nodes, materials } = useGLTF('/models/Scarcity/can.glb')
