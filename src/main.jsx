@@ -8,7 +8,8 @@ import MainMenu from './pages/Menu_Principal/MainMenu';
 import Tutorial from './pages/Tutorial/Tutorial';
 import Acidification from './pages/ocean-acidification/Acidification';
 import AcidificationInfoPage from "./pages/ocean-acidification-info/AcidificationInfoPage";
-import Scarcity from './pages/scarcity/scarcity-main.jsx';
+import Scarcity from './pages/scarcity/main/scarcity-main.jsx';
+import ScarcityInfo from './pages/scarcity/info/scarcityInfo.jsx'
 import PollutionPage from './pages/pollutionPage/PollutionPage';
 
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
   {
     path:'/MainMenu/Scarcity',
     element: <Scarcity/>
+  },
+  {
+    path: '/MainMenu/Scarcity/Info',
+    element: <ScarcityInfo/>
   },
   {
     path: '/MainMenu/Pollution',
