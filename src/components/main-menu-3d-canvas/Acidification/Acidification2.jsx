@@ -1,37 +1,91 @@
-import React, { useRef } from 'react';
-import { useGLTF } from '@react-three/drei';
+import React, { useRef, useMemo } from 'react';
+import { useGLTF, OrbitControls } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
-const Coral = (props) => {
-  const { nodes, materials } = useGLTF('/models/coral.glb')
-  const modelRef = useRef();
+const Coral = ({ position }) => {
+  const { nodes, materials } = useGLTF('/models/coral.glb');
+  const coralRef = useRef();
 
-// Animación de rotación continua
   useFrame(() => {
-    if (modelRef.current) {
-      modelRef.current.rotation.y += 0.01; // Rota en el eje Y
+    if (coralRef.current) {
+      coralRef.current.rotation.y += 0.005; // Animación lenta de rotación
     }
   });
 
   return (
-    <group {...props} dispose={null} scale={[1.0, 1.0, 1.0]} position={[0, 0, 0]} ref={modelRef}>
+    <group ref={coralRef} position={position} dispose={null} scale={[2, 2, 2]}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[-Math.PI, 0, 0]}>
-          <mesh geometry={nodes.Model_material0_0.geometry} material={materials.material0} />
-          <mesh geometry={nodes.Model_material0_0_1.geometry} material={materials.material0} />
-          <mesh geometry={nodes.Model_material0_0_2.geometry} material={materials.material0} />
-          <mesh geometry={nodes.Model_material0_0_3.geometry} material={materials.material0} />
-          <mesh geometry={nodes.Model_material0_0_4.geometry} material={materials.material0} />
-          <mesh geometry={nodes.Model_material0_0_5.geometry} material={materials.material0} />
-          <mesh geometry={nodes.Model_material0_0_6.geometry} material={materials.material0} />
-          <mesh geometry={nodes.Model_material0_0_7.geometry} material={materials.material0} />
-          <mesh geometry={nodes.Model_material0_0_8.geometry} material={materials.material0} />
-          <mesh geometry={nodes.Model_material0_0_9.geometry} material={materials.material0} />
+          {Object.values(nodes).map((mesh, index) => (
+            mesh.geometry && (
+              <mesh
+                key={index}
+                geometry={mesh.geometry}
+                material={materials.material0}
+                castShadow
+                receiveShadow
+              />
+            )
+          ))}
         </group>
       </group>
     </group>
-  )
-}
+  );
+};
 
-export default Coral;
-useGLTF.preload('/coral.glb')
+const Rocks = ({ modelPath, positions }) => {
+  const { nodes, materials } = useGLTF(modelPath);
+
+  return (
+    <>
+      {positions.map((pos, i) => (
+        <group key={i} position={pos} scale={[3, 3, 3]}> {/* Aumentamos la escala aquí */}
+          {Object.values(nodes).map((mesh, index) => (
+            mesh.geometry && (
+              <mesh
+                key={`${i}-${index}`}
+                geometry={mesh.geometry}
+                material={materials[Object.keys(materials)[0]]}
+              />
+            )
+          ))}
+        </group>
+      ))}
+    </>
+  );
+};
+
+const OceanScene = () => {
+  // Posiciones para las rocas
+  const rockPositions = useMemo(
+    () => [
+      [-2, -1.5, -2],
+      [1, -1.8, 1],
+      [3, -2, -3],
+    ],
+    []
+  );
+
+  return (
+    <>
+      <color attach="background" args={['#1A374D']} /> {/* Fondo azul oscuro */}
+      <ambientLight intensity={0.6} color="#88ccee" />
+      <directionalLight position={[5, 10, 5]} intensity={1} castShadow />
+
+      {/* Coral */}
+      <Coral position={[0, -2, 0]} />
+
+      {/* Rocas */}
+      <Rocks modelPath="/models/models-3d/acidification/Smallrocks.glb" positions={rockPositions} />
+
+      {/* Control de cámara */}
+      <OrbitControls enableZoom={true} maxPolarAngle={Math.PI / 2} />
+    </>
+  );
+};
+
+export default OceanScene;
+
+// Preload models
+useGLTF.preload('/models/coral.glb');
+useGLTF.preload('/models/models-3d/acidification/Smallrocks.glb');
