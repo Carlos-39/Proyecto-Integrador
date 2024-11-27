@@ -1,11 +1,12 @@
 import { OrbitControls, useTexture, useGLTF, Html, Environment, Sky, Stars, Cloud } from "@react-three/drei";
 import { useMemo, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
+import { RigidBody } from "@react-three/rapier";
 
 import './pollution.css'
 
-const Pollution = ({ showHTML3D, ...props }) => {
-    const toxicWaste = useGLTF("models/Pollution/uploads_files_4314177_Crate_2x.glb")
+const Pollution = ({ showHTML3D, disableAutoRotate = false, ...props }) => {
+    const toxicWaste = useGLTF("/models/Pollution/uploads_files_4314177_Crate_2x.glb")
     const { nodes, materials } = useGLTF("/models/Pollution/toxic_waste_barrel.glb")
 
     // Ajuste de escala y posición
@@ -51,7 +52,7 @@ const Pollution = ({ showHTML3D, ...props }) => {
                 enablePan={false}
                 enableRotate={false}
                 enableZoom={false}
-                autoRotate={true}
+                autoRotate={!disableAutoRotate}
                 autoRotateSpeed={1}
             />
 
@@ -140,9 +141,16 @@ const Pollution = ({ showHTML3D, ...props }) => {
               )}
             </group>
 
+            {/* <RigidBody type="fixed">
+              <mesh position={[0, -2, 0]} castShadow receiveShadow>
+                <cylinderGeometry args={[20, 20, 0.1, 32]} />
+                <meshStandardMaterial {...floorTexture} />
+              </mesh>
+            </RigidBody> */}
+
             <mesh position={[0, -2, 0]} castShadow receiveShadow>
-                <cylinderGeometry args={[20, 20, 0.1, 32]}/>
-                <meshStandardMaterial {...floorTexture}/>
+                <cylinderGeometry args={[20, 20, 0.1, 32]} />
+                <meshStandardMaterial {...floorTexture} />
             </mesh>
 
             {/* Renderización de HTML3D solo si showHTML3D es true */}
@@ -162,7 +170,7 @@ const Pollution = ({ showHTML3D, ...props }) => {
                     <p>Los productos químicos y residuos tóxicos en el agua generan problemas graves de salud pública.</p>
                   </div>
                 </div>
-              </Html>
+              </Html> 
             )}
         </>
     );
