@@ -1,14 +1,11 @@
-import React from "react";
 import { Link, useNavigate } from "react-router-dom"; 
 import "./MainMenu.css";
-import useAuthStore from "../../stores/use-auth-store";
+
 import {
   FaWater,
   FaExclamationTriangle,
   FaRecycle,
-  FaTrophy,
 } from "react-icons/fa";
-import projectLogo from "../../assets/images/logo.png";
 import Escene from "../../components/main-menu-3d-canvas/Escene.jsx";
 import Scarcity from "../../components/main-menu-3d-canvas/Scarcity/scarcity.jsx";
 import Acidification from "../../components/main-menu-3d-canvas/Acidification/acidification.jsx";
@@ -25,45 +22,29 @@ const menuItems = [
       "Descubre cómo la contaminación afecta nuestros recursos hídricos, amenazando la biodiversidad y la salud humana, y qué podemos hacer para enfrentarlo.",
     icon: <FaWater />,
     image: <Escene escenario={<Pollution />} x={2} y={1} z={6} bgImage={bgPollution} />,
-    link: "/PollutionPage",
+    link: "/MainMenu/Pollution",
   },
   {
     title: "Escasez de Agua",
     description: "El agua se está agotando rápidamente en todo el mundo. Descubre sus causas y soluciones aquí.",
     icon: <FaExclamationTriangle />,
     image: <Escene escenario={<Scarcity />} x={2} y={1} z={6} bgImage={bgScarcity} />,
-    link: "/scarcity",
+    link: "/MainMenu/scarcity",
   },
   {
     title: "Acidificación de los Océanos",
     description: "Entiende el impacto de la acidificación en la vida marina.",
     icon: <FaRecycle />,
     image: <Escene escenario={<Acidification />} x={2} y={1} z={9} bgImage={bgAcidification} />,
-    link: "/AcidificationPage", 
+    link: "/MainMenu/Acidification", 
   },
 ];
 
 const MainMenu = () => {
-  const { user, observeAuthState } = useAuthStore();
   const navigate = useNavigate();
-
-  React.useEffect(() => {
-    observeAuthState();
-  }, [observeAuthState]);
-
-  const capitalizeWords = (text) => {
-    return text
-      .toLowerCase()
-      .split(" ")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-  };
-
-  const username = user ? capitalizeWords(user.displayName) : "Invitado";
-
   return (
     <div className="main-menu">
-      <Header username={username} />
+      <Header/>
 
       <section className="text-container">
         <div className="transparent-box">

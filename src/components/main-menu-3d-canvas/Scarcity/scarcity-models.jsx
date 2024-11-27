@@ -5,7 +5,7 @@ import { useGLTF } from '@react-three/drei'
 import { forwardRef } from 'react'
 
 export function Cactus(props) {
-  const { nodes, materials } = useGLTF('models/Scarcity/cactus.glb')
+  const { nodes, materials } = useGLTF('/models/Scarcity/cactus.glb')
   return (
     <group {...props} dispose={null}>
       <mesh
@@ -30,10 +30,10 @@ export function Cactus(props) {
   )
 }
 
-export function BizonSkull(props) {
-  const { nodes, materials } = useGLTF('models/Scarcity/bizon-skull.glb')
+export const BizonSkull = forwardRef((props, ref) => {
+  const { nodes, materials } = useGLTF('/models/Scarcity/bizon-skull.glb')
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} ref={ref}>
       <mesh
         castShadow
         receiveShadow
@@ -42,10 +42,10 @@ export function BizonSkull(props) {
       />
     </group>
   )
-}
+})
 
 export function Can(props) {
-  const { nodes, materials } = useGLTF('models/Scarcity/can.glb')
+  const { nodes, materials } = useGLTF('/models/Scarcity/can.glb')
   return (
     <group {...props} dispose={null}>
       <mesh
@@ -59,7 +59,7 @@ export function Can(props) {
 }
 
 export const WindVane = forwardRef((props, ref) => {
-  const { nodes, materials } = useGLTF('models/Scarcity/wind.glb')
+  const { nodes, materials } = useGLTF('/models/Scarcity/wind.glb')
   return (
     <group {...props} dispose={null} ref={ref}>
       <mesh
@@ -73,7 +73,7 @@ export const WindVane = forwardRef((props, ref) => {
 })
 
 export function WoodSign(props) {
-  const { nodes, materials } = useGLTF('models/Scarcity/sign.glb')
+  const { nodes, materials } = useGLTF('/models/Scarcity/sign.glb')
   return (
     <group {...props} dispose={null}>
       <mesh
@@ -87,8 +87,8 @@ export function WoodSign(props) {
   )
 }
 
-useGLTF.preload('models/Scarcity/sign.glb')
-useGLTF.preload('models/Scarcity/wind.glb')
-useGLTF.preload('models/Scarcity/can.glb')
-useGLTF.preload('models/Scarcity/bizon-skull.glb')
-useGLTF.preload('models/Scarcity/cactus.glb')
+useGLTF.preload('/models/Scarcity/sign.glb')
+useGLTF.preload('/models/Scarcity/wind.glb')
+useGLTF.preload('/models/Scarcity/can.glb')
+useGLTF.preload('/models/Scarcity/bizon-skull.glb')
+useGLTF.preload('/models/Scarcity/cactus.glb')

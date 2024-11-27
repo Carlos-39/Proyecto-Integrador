@@ -1,10 +1,10 @@
 .acidification-info-page {
-  background-image: url('../../assets/images/ocean_background.jpg');
-  background-size: cover;
   min-height: 100vh;
   color: black;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
 
 /* Estilos del main */

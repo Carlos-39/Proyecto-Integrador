@@ -6,10 +6,12 @@ import Inicio from './pages/Inicio/Inicio';
 import Login from './pages/Login/Login';
 import MainMenu from './pages/Menu_Principal/MainMenu';
 import Tutorial from './pages/Tutorial/Tutorial';
-import AcidificationPage from './pages/ocean-acidification/AcidificationPage';
+import Acidification from './pages/ocean-acidification/Acidification';
 import AcidificationInfoPage from "./pages/ocean-acidification-info/AcidificationInfoPage";
-import Scarcity from './pages/scarcity/scarcity-main.jsx';
+import Scarcity from './pages/scarcity/main/scarcity-main.jsx';
+import ScarcityInfo from './pages/scarcity/info/scarcityInfo.jsx'
 import PollutionPage from './pages/pollutionPage/PollutionPage';
+import PollutionInfo from './pages/pollutionInfo/PollutionInfo.jsx'
 
 const router = createBrowserRouter([
   {
@@ -29,20 +31,28 @@ const router = createBrowserRouter([
     element: <Tutorial />
   },
   {
-    path: '/AcidificationPage',
-    element: <AcidificationPage />
+    path: '/MainMenu/Acidification',
+    element: <Acidification />
   },
   {
-    path: '/AcidificationInfoPage',
+    path: '/MainMenu/Acidification/Info',
     element: <AcidificationInfoPage />
   },
   {
-    path:'/Scarcity',
+    path:'/MainMenu/Scarcity',
     element: <Scarcity/>
   },
   {
-    path: '/PollutionPage',
+    path: '/MainMenu/Scarcity/Info',
+    element: <ScarcityInfo/>
+  },
+  {
+    path: '/MainMenu/Pollution',
     element: <PollutionPage />
+  },
+  {
+    path: '/MainMenu/Pollution/Info',
+    element: <PollutionInfo />
   }
 ]);
 
