@@ -13,8 +13,8 @@ import { FaArrowLeft } from 'react-icons/fa';  // Icono de "Volver"
 const FallingElements = () => {
 	// Ruta de modelos 3D
 	const pollutionIcons = [
-		"/public/models/Pollution/cc0_-_tin_can_4_1k.glb",
-		"/public/models/Pollution/uploads_files_2995321_waterbottle.glb",
+		"/models/Pollution/cc0_-_tin_can_4_1k.glb",
+		"/models/Pollution/uploads_files_2995321_waterbottle.glb",
 	];
 
 	// Número de objetos que caerán
