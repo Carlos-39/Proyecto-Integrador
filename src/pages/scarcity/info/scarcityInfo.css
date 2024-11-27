@@ -5,3 +5,27 @@
     padding:20px;
     height: auto;
 }
+
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid yellow;
+    margin-bottom: 20px;
+  }
+  
+.arrow-down {
+    width: 0; 
+    height: 0; 
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+
+    border-top: 20px solid yellow;
+}
+
+.arrows
+{
+    display: flex;
+    flex-flow: column;
+}
