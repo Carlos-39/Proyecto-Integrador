@@ -1,13 +1,20 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FaTrophy } from "react-icons/fa";
 import useAuthStore from "../../stores/use-auth-store";
+import { FaTrophy } from "react-icons/fa";
 import "./AcidificationInfoPage.css";
 import projectLogo from "../../assets/images/logo.png";
 import oceanProblem from "../../assets/images/ocean_problem.jpg";
 import oceanSolution from "../../assets/images/ocean_solution.jpg";
 import Carousel from "../../components/Carousel";
-import Header from '../../components/Header/Header.jsx'
+import Header from '../../components/Header/Header.jsx';
+
+// React Three Fiber and Three.js imports
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+
+// Import your 3D model component
+import Acidification3D from "../../components/main-menu-3d-canvas/Acidification/acidification3.jsx";
 
 const AcidificationInfoPage = () => {
   const navigate = useNavigate();
@@ -23,43 +30,62 @@ const AcidificationInfoPage = () => {
     "Esto afecta el equilibrio de los ecosistemas, lo que repercute en las comunidades costeras.",
   ];
 
+  const solutions = [
+    "Promover el uso de energías renovables para reducir las emisiones de CO₂.",
+    "Mejorar la eficiencia energética en industrias y hogares.",
+    "Fomentar la conservación de ecosistemas naturales que absorben carbono, como bosques y humedales.",
+    "Crear áreas marinas protegidas para restaurar ecosistemas y aumentar la resiliencia de las especies.",
+    "Impulsar la educación y la concienciación pública para promover acciones comunitarias.",
+  ];
+  
   return (
     <div className="acidification-info-page">
-      <Header/>
+      <Canvas
+        style={{
+          zIndex: "-1",
+          position: "absolute",
+          top: "0",
+          left: "0",
+          width: "100%",
+          height: "100%",
+          backgroundSize: "cover",
+        }}
+      >
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[5, 5, 5]} />
+        <OrbitControls />
+        < Acidification3D />
+      </Canvas>
 
-      <main className="main-content">
-        <h2 className="page-title">Acidificación de los Océanos</h2>
+      {/* Main Content */}
+      <div className="main-content-overlay">
+        <Header />
 
-        <section className="description-box">
-          <h3>Problemática</h3>
-          <p className="description-text">
-            La acidificación de los océanos es el proceso por el cual el agua del mar se vuelve más ácida debido al dióxido de carbono (CO₂) absorbido de la atmósfera. Este fenómeno ha aumentado en un 30% desde la Revolución Industrial, alterando la química del agua. A medida que el nivel de CO₂ aumenta, el pH del agua disminuye, afectando gravemente a los ecosistemas marinos. Esto no solo amenaza la vida marina, sino que también impacta la economía de las comunidades costeras que dependen de la pesca y el turismo.
-          </p>
-        </section>
+        <main className="main-content">
+          <h2 className="page-title">Acidificación de los Océanos</h2>
 
-        <section className="sections-container">
-          <div className="section-card">
-            <h3>Consecuencias de la acidificación</h3>
-            <Carousel items={consequences} />
-            <img src={oceanProblem} alt="Consecuencias de la acidificación" className="section-image" />
-            <button className="button learn-more-btn">Conoce más...</button>
-          </div>
+          <section className="sections-container">
+            <div className="section-card">
+              <h3>Consecuencias de la acidificación</h3>
+              <Carousel items={consequences} />
+              <img src={oceanProblem} alt="Consecuencias de la acidificación" className="section-image" />
+              <button className="button learn-more-btn">Conoce más...</button>
+            </div>
 
-          <div className="section-card">
-            <h3>Soluciones</h3>
-            <p className="section-text text2">
-              Para combatir la acidificación de los océanos, es esencial reducir las emisiones de CO₂ a nivel global. Esto incluye promover el uso de energías renovables, mejorar la eficiencia energética y fomentar la conservación de los ecosistemas naturales que absorben carbono, como los bosques y humedales. Además, la creación de áreas marinas protegidas puede ayudar a restaurar los ecosistemas marinos y aumentar la resiliencia de las especies frente a cambios ambientales. La educación y la concienciación pública también juegan un papel crucial en el impulso de acciones comunitarias y políticas efectivas.
-            </p>
-            <img src={oceanSolution} alt="Soluciones para la acidificación" className="section-image" />
-            <button className="button learn-more-btn">Conoce más...</button>
-          </div>
-        </section>
+            <div className="section-card">
+              <h3>Soluciones</h3>
+              <Carousel items={solutions} />
+              <img src={oceanSolution} alt="Soluciones para la acidificación" className="section-image" />
+              <button className="button learn-more-btn">Conoce más...</button>
+            </div>
+          </section>
 
-        <section className="button-group">
-          <button className="btn main-button" onClick={backToMainMenu}>Volver al menú principal</button>
-          <button className="btn quiz-button">Quiero probarme</button>
-        </section>
-      </main>
+          <section className="button-group">
+            <button className="btn main-button" onClick={backToMainMenu}>Volver al menú principal</button>
+            <button className="btn quiz-button">Quiero probarme</button>
+          </section>
+        </main>
+      </div>
     </div>
   );
 };
