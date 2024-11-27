@@ -25,7 +25,7 @@ const PollutionPage = () => {
 
 
 	const handleLearnMoreClick = () => {
-		navigate("/Tutorial");
+		navigate("/MainMenu/Pollution/Info");
 	};
 
 	// Función para alternar visibilidad con animación
