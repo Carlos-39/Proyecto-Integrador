@@ -149,7 +149,6 @@ const Pollution = ({ showHTML3D, disableAutoRotate = false, ...props }) => {
                 </mesh>
               </RigidBody>
             </Physics> */}
-            
 
             <mesh position={[0, -2, 0]} castShadow receiveShadow>
                 <cylinderGeometry args={[20, 20, 0.1, 32]} />
