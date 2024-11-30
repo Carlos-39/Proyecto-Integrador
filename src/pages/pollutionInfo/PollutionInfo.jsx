@@ -13,8 +13,8 @@ import { FaArrowLeft } from 'react-icons/fa';  // Icono de "Volver"
 const FallingElements = () => {
 	// Ruta de modelos 3D
 	const pollutionIcons = [
-		"/public/models/Pollution/cc0_-_tin_can_4_1k.glb",
-		"/public/models/Pollution/uploads_files_2995321_waterbottle.glb",
+		"/models/Pollution/cc0_-_tin_can_4_1k.glb",
+		"/models/Pollution/uploads_files_2995321_waterbottle.glb",
 	];
 
 	// Número de objetos que caerán
@@ -101,14 +101,20 @@ const PollutionInfo = () => {
           			<div className="canvas-container">
             			<Canvas camera={{ position: [0, 5, 15], fov: 50 }}>
               			<Suspense fallback={null}>
-                		<Physics gravity={[0, -0.5, 0]}> {/* Ajusta la gravedad para que caigan lentamente */}
+                		<Physics gravity={[0, -0.5, 0]}>
                 		  	<Pollution showHTML3D={false} disableAutoRotate={true} />
-                		  	<Text3D position={[-3, 4, 5]} font="/public/KG-Architecturally-Artistic_Regular.json" size={0.7} height={0.3} anchorX="center" anchorY="middle">
+                		  	<Text3D position={[-3, 4, 5]} font="/fonts/KG-Architecturally-Artistic_Regular.json" size={0.7} height={0.3} anchorX="center" anchorY="middle">
                 		  	  	{activeSection === "problems" ? "Problemas" : "Soluciones"}
                 		  	  	<meshStandardMaterial color="#fb8500" />
                 		  	</Text3D>
-                		  	<Text position={[0.5, 2.8, 5]} fontSize={0.7} color="#000814" anchorX="center" anchorY="middle">
-                		  	  	de la Contaminación del Agua
+                		  	<Text 
+								position={[0.5, 2.8, 5]} 
+								fontSize={0.7} color="#000814" 
+								anchorX="center" 
+								anchorY="middle"
+								font="/fonts/Winter-Selfie.ttf"
+							>
+                		  	  	de la Contaminacion del Agua
                 		  	</Text>
                 		  	<ambientLight intensity={0.5} />
                 		  	<directionalLight position={[10, 10, 5]} intensity={1} />
