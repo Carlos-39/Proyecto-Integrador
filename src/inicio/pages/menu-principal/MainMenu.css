@@ -1,0 +1,95 @@
+@import url('../../../main.css');
+
+.main-menu {
+  background-image: url('../../assets/oceano.jpeg');
+}
+
+/* section después del header */
+.text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.transparent-box {
+  background-color: rgba(255, 255, 255, 0.8); 
+  backdrop-filter: blur(12px);
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); 
+}
+
+.transparent-box p {
+  font-size: 2rem; 
+  color: #000;
+  font-weight: 600; 
+  /* font-style: italic;  */
+  padding: 10px 6px;
+}
+
+/* estilos de las cards del menu */
+.main-menu-card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0px 50px;
+  margin-top: 20px;
+}
+
+.card {
+  width: 300px; 
+  background-color: rgba(255, 255, 255, 0.8);
+  /* backdrop-filter: blur(12px); */
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: black;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9); 
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-image {
+  width: 100%;
+  height: 250px; 
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #000; 
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  text-decoration: none; 
+}
+
+.card-description {
+  font-size: 1.4rem; 
+  padding: 0 15px 15px; 
+  color: #000;
+  text-decoration: none; 
+  /* font-family: 'Helvetica Neue', sans-serif;  */
+}
+
+
+.footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 10px 0;
+  color: white;
+  /* font-family: 'Poppins', sans-serif;  */
+  font-size: 1rem; 
+  font-weight: 600; 
+}
