@@ -11,7 +11,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 
 // Import your 3D model component
-import Acidification3D from "../../components/acidification3.jsx";
+import Acidification3D from "../../components/Acidification2.jsx";
 
 const AcidificationInfoPage = () => {
   const navigate = useNavigate();
