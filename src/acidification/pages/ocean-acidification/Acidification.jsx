@@ -72,7 +72,7 @@ const Acidification = () => {
       >
         <ambientLight intensity={0.5} />
         <OrbitControls />
-        <Acido showHTML3D={showHTML3D} />
+        <Acido position={[2, 2, 2]} showHTML3D={showHTML3D}  />
       </Canvas>
 
       <Header/>
