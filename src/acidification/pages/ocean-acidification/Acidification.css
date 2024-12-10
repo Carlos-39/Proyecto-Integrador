@@ -1,0 +1,220 @@
+/* Página de Acidificación */
+.acidification-page {
+  background-color: #e0f7fa; /* Color suave que evoca el agua y el ambiente marino */
+  color: #004d40;
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding-top: 50px;
+}
+
+/* Encabezado */
+.acidification-page h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #00796b;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px;
+  border-bottom: 5px solid #00796b;
+  width: 80%;
+  background-color: #ffffffcc;
+}
+
+/* Descripción inicial */
+.acidification-page .intro-description {
+  text-align: center;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  margin: 2rem auto;
+  width: 80%;
+  color: #004d40;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Sección de sensibilización */
+.acidification-page .sensibilization-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  gap: 20px;
+}
+
+.acidification-page .sensibilization-section .sensibilization-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.acidification-page .sensibilization-section .sensibilization-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.acidification-page .sensibilization-section .sensibilization-card h3 {
+  font-size: 1.8rem;
+  color: #00796b;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.acidification-page .sensibilization-section .sensibilization-card p {
+  font-size: 1.4rem;
+  color: #004d40;
+  margin-bottom: 15px;
+}
+
+.acidification-page .sensibilization-section .sensibilization-card .learn-more-btn {
+  display: inline-block;
+  background-color: #00796b;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.acidification-page .sensibilization-section .sensibilization-card .learn-more-btn:hover {
+  background-color: #004d40;
+}
+
+/* Sección de impacto */
+.acidification-page .impact-section {
+  width: 80%;
+  margin-top: 40px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.acidification-page .impact-section h2 {
+  font-size: 2.5rem;
+  color: #00796b;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.acidification-page .impact-section p {
+  font-size: 1.6rem;
+  color: #004d40;
+  line-height: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* Gráficos y visualización */
+.acidification-page .graphs-section {
+  width: 80%;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.acidification-page .graphs-section .graph-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 48%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.acidification-page .graphs-section .graph-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.acidification-page .graphs-section .graph-card h4 {
+  font-size: 1.8rem;
+  color: #00796b;
+  margin-top: 15px;
+}
+
+/* Botón para más información */
+.acidification-page .more-info-btn {
+  display: inline-block;
+  background-color: #00796b;
+  color: #ffffff;
+  padding: 12px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.4rem;
+  margin-top: 40px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  width: 100%;
+}
+
+.acidification-page .more-info-btn:hover {
+  background-color: #004d40;
+}
+
+/* Animaciones de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aplicando animación a las secciones */
+.acidification-page .intro-description,
+.acidification-page .impact-section,
+.acidification-page .graphs-section {
+  animation: fadeIn 1s ease-out;
+}
+
+@media (max-width: 768px) {
+  .acidification-page {
+    padding-top: 20px;
+  }
+
+  .acidification-page h1 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .acidification-page .intro-description {
+    font-size: 1.4rem;
+    padding: 15px;
+  }
+
+  .acidification-page .sensibilization-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .acidification-page .impact-section,
+  .acidification-page .graphs-section {
+    width: 90%;
+  }
+
+  .acidification-page .graphs-section .graph-card {
+    width: 100%;
+  }
+
+  .acidification-page .more-info-btn {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+  }
+}
