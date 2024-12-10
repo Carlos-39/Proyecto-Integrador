@@ -10,6 +10,8 @@ import "./scarcityMain.css"
 import scarcityImage from "../assets/more-info.jpg"
 import quizImage from "../assets/quiz.jpg"
 import { useNavigate } from "react-router-dom";
+import { Bloom, ChromaticAberration, DepthOfField, EffectComposer, HueSaturation, Outline } from "@react-three/postprocessing";
+import { degToRad } from "three/src/math/MathUtils.js";
 
 const Content = () =>
   {
@@ -82,7 +84,8 @@ const Content = () =>
               rotation={[0, -Math.PI/4, 0]}
               onClick={(e)=>{e.stopPropagation()}}
             />
-            <Cactus 
+            <Cactus
+              Outline
               position={[-20, -8, -2]}
               onClick={(e)=>{e.stopPropagation()}}
             />
@@ -177,7 +180,8 @@ const HtmlContent = () =>
 
 export default () =>
   {
-
+    const cubeRef = useRef()
+    
     return (
       <>
         <Header/>
@@ -192,6 +196,12 @@ export default () =>
           camera={{position: [0, 0, 12]}}
           shadows
         >
+          <EffectComposer>
+            <HueSaturation
+              hue={degToRad(5)}
+              saturation={0.25}
+            />
+          </EffectComposer>
           <Content/>
           <HtmlContent/>
         </Canvas>

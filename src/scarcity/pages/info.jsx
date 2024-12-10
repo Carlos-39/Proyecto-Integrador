@@ -1,11 +1,14 @@
 import Header from "../../components/Header/Header.jsx"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { BizonSkull } from "../components/scarcity-models.jsx"
-import { OrbitControls, Text3D } from "@react-three/drei"
+import { OrbitControls, Text3D, useKeyboardControls } from "@react-three/drei"
 import { Environment } from "@react-three/drei"
-import { forwardRef, useMemo, useRef, useState } from "react"
+import { forwardRef, useEffect, useMemo, useRef, useState } from "react"
 import { useTexture, Html } from "@react-three/drei"
 import "./scarcityInfo.css"
+import { KeyboardControls } from "@react-three/drei"
+import { EffectComposer, HueSaturation } from "@react-three/postprocessing"
+import { degToRad } from "three/src/math/MathUtils.js"
 
 const deg2rad = (x) =>
 {
@@ -199,6 +202,30 @@ const Content = () =>
         }
     })
     
+    const [sub, get] = useKeyboardControls();
+
+    useEffect(() =>{
+        const up = sub(
+            (state) => state.up,
+            (pressed) => {
+                setDestiny(0)
+            },
+        );
+        const down = sub(
+            (state) => state.down,
+            (pressed) => {
+                setDestiny(17)
+            },
+        );
+        return () => {
+            up();
+            down();
+        }
+    });
+
+    useFrame(()=>{
+        const pressed = get().back;
+    })
     
     return(
         <> 
@@ -227,23 +254,36 @@ const Content = () =>
 
 const scarcityInfo = () =>
 {
+    const map = useMemo(()=>
+        [
+            {name:"up", keys:["ArrowUp", "KeyW"]},
+            {name:"down", keys: ["ArrowDown", "KeyS"]}
+        ],[])
     return(
         <>
             <Header/>
-            <Canvas 
-                shadows 
-                camera={{position: [0, 0, 10]}}
-                style={{height: "100vh",
-                        width: "100%",
-                        position: "absolute",
-                        top: "0px", left: "0px"}}
-            >
-                <Content/>
-                <OrbitControls
-                enableRotate={false}
-                enableZoom={false}
-                />
-            </Canvas>
+            <KeyboardControls map={map}>
+                <Canvas 
+                    shadows 
+                    camera={{position: [0, 0, 10]}}
+                    style={{height: "100vh",
+                            width: "100%",
+                            position: "absolute",
+                            top: "0px", left: "0px"}}
+                >
+                    <Content/>
+                    <OrbitControls
+                    enableRotate={false}
+                    enableZoom={false}
+                    />
+                    <EffectComposer>
+                        <HueSaturation
+                        hue={degToRad(5)}
+                        saturation={0.25}
+                        />
+                    </EffectComposer>
+                </Canvas>
+            </KeyboardControls>
 
         </>
     )
