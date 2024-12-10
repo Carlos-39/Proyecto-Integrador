@@ -7,6 +7,8 @@ import { forwardRef, useEffect, useMemo, useRef, useState } from "react"
 import { useTexture, Html } from "@react-three/drei"
 import "./scarcityInfo.css"
 import { KeyboardControls } from "@react-three/drei"
+import { EffectComposer, HueSaturation } from "@react-three/postprocessing"
+import { degToRad } from "three/src/math/MathUtils.js"
 
 const deg2rad = (x) =>
 {
@@ -274,6 +276,12 @@ const scarcityInfo = () =>
                     enableRotate={false}
                     enableZoom={false}
                     />
+                    <EffectComposer>
+                        <HueSaturation
+                        hue={degToRad(5)}
+                        saturation={0.25}
+                        />
+                    </EffectComposer>
                 </Canvas>
             </KeyboardControls>
 
